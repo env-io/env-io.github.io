@@ -214,27 +214,27 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 }
 ```
 
-| Parameter   | Description                                                                               |
-| ----------- | ----------------------------------------------------------------------------------------- |
-| id          | Envio shipment ids                                                                        |
-| code        | Envio unique shipment code                                                                |
-| ref_code    | Your refference code, can be your order number or any refference code in your application |
-| eta_at      | estimated time arrival -- estimated time for delivery, Date time format (ISO 8601)        |
-| ata_at      | actual time arrival -- actual delivered time, Date time format (ISO 8601)                 |
-| etd_at      | estimated time departure -- estimated time for pickup, Date time format (ISO 8601)        |
-| atd_at      | actual time departure -- actual pickup time, Date time format (ISO 8601)                  |
-| received_by | name of who received the packages                                                         |
-| status      | - new (shipment was created)                                                              |
-|             | - on_pickup (packages is in pickup process)                                               |
-|             | - on_delivery (packages is on the way to the recipient's location)                        |
-|             | - on_transit (packages is on the way to envio hubs)                                       |
-|             | - Console (packages is in envio hubs)                                                     |
-|             | - delivered (packages delivered)                                                          |
-|             | - disputed (failed to reach recipient, will back to envio hubs)                           |
-| cod_value   | the amount that envio should collecting in delivery                                       |
-| cod_status  | - '' (no cod or not collected by envio)                                                   |
-|             | - collected (collected by envio)                                                          |
-| logs        | shipment process logs                                                                     |
+| Parameter   | Description                                                                                                      |
+| ----------- | ---------------------------------------------------------------------------------------------------------------- |
+| id          | Envio shipment ids                                                                                               |
+| code        | Envio unique shipment code                                                                                       |
+| ref_code    | Your refference code, can be your order number or any refference code in your application                        |
+| eta_at      | estimated time arrival -- estimated time for delivery, Date time format (ISO 8601)                               |
+| ata_at      | actual time arrival -- actual delivered time, will appear when delivered - Date time format (ISO 8601)           |
+| etd_at      | estimated time departure -- estimated time for pickup, Date time format (ISO 8601)                               |
+| atd_at      | actual time departure -- actual pickup time, will appear when pick-up already done - Date time format (ISO 8601) |
+| received_by | name of who received the packages                                                                                |
+| status      | - new (shipment was created)                                                                                     |
+|             | - on_pickup (packages is in pickup process)                                                                      |
+|             | - on_delivery (packages is on the way to the recipient's location)                                               |
+|             | - on_transit (packages is on the way to envio hubs)                                                              |
+|             | - Console (packages is in envio hubs)                                                                            |
+|             | - delivered (packages delivered)                                                                                 |
+|             | - disputed (failed to reach recipient, will back to envio hubs)                                                  |
+| cod_value   | the amount that envio should collecting in delivery                                                              |
+| cod_status  | - '' (no cod or not collected by envio)                                                                          |
+|             | - collected (collected by envio)                                                                                 |
+| logs        | shipment process logs                                                                                            |
 
 # Shipment Cancelling
 
