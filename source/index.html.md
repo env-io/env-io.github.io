@@ -169,7 +169,6 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 | atd_at      | atd_at is the pickup date arrival at location                                               |
 | received_by | received_by is the name of the recipient of the goods sent                                  |
 | status      | - new (new at the time of order creation)                                                   |
-|             | - new (new at the time of order creation)                                                   |
 |             | - on_pickup (on pickup when the driver picks up goods)                                      |
 |             | - on_delivery (on delivery when the driver is delivering goods to the recipient's location) |
 |             | - on_transit (on transit when goods are in transit between hubs / consoles)                 |
