@@ -56,197 +56,118 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 
 ## Request
 
-| Fields         | Required (Y/N) | Type                            | Description                                                                                                                |
-| -------------- | -------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| ref_code       | N              | String                          | Your refference code, can be your order number or any refference code in your application                                  |
-| cod_value      | N              | Decimal                         | If your shipment need us to collect the money on delivery, fill 0 if you dont need it                                      |
-| pickup_address | Y              | Object                          | -                                                                                                                          |
-| name           | Y              | String                          | -                                                                                                                          |
-| contact_person | Y              | String                          | -                                                                                                                          |
-| recipient      | Y              | Object                          | -                                                                                                                          |
-| eta_at         | Y              | Date and time format (ISO 8601) | Estimated time arrival, if any your shipment has window receiving time, using format: 2023-07-28T07:20:24+07:00 (ISO 8601) |
-| etd_at         | Y              | Date and time format (ISO 8601) | Estimated time departure, scheduled pick-up time, using format: 2023-07-28T07:20:24+07:00 (ISO 8601)                       |
+| Fields         | Required (Y/N) | Type                            | Description                                                                                                                                           |
+| -------------- | -------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ref_code       | Y              | String                          | Your refference code, can be your order number or any refference code in your application                                                             |
+| cod_value      | N              | Decimal                         | If your shipment need us to collect the money on delivery, fill 0 if you dont need it                                                                 |
+| pickup_address | Y              | Object                          | This pickup address is for the pickup address for the goods to be sent                                                                                |
+| name           | Y              | String                          | Pickup Address name                                                                                                                                   |
+| contact_person | Y              | String                          | Pickup Address contatct person                                                                                                                        |
+| address        | Y              | String                          | You can fill in the detailed address of Jl, village, district, regency, province here or you fill in the request village, district, regency, province |
+| province       | N              | String                          | Province of the pickupaddress                                                                                                                         |
+| regency        | N              | String                          | Regency of the pickup address                                                                                                                         |
+| district       | N              | String                          | District of the pickup address                                                                                                                        |
+| village        | N              | String                          | Village of the pickup address                                                                                                                         |
+| recipient      | Y              | Object                          | This recipient is for the destination address of the goods to be sent                                                                                 |
+| name           | Y              | String                          | Recipient name                                                                                                                                        |
+| contact_person | Y              | String                          | Recipeint Contact person                                                                                                                              |
+| address        | Y              | String                          | You can fill in the detailed address of Jl, village, district, regency, province here or you fill in the request village, district, regency, province |
+| province       | N              | String                          | Province of the recipient                                                                                                                             |
+| regency        | N              | String                          | Regency of the recipient                                                                                                                              |
+| district       | N              | String                          | District of the recipient                                                                                                                             |
+| village        | N              | String                          | Village of the recipient                                                                                                                              |
+| eta_at         | Y              | Date and time format (ISO 8601) | Estimated time arrival, if any your shipment has window receiving time, using format: 2023-07-28T07:20:24+07:00 (ISO 8601)                            |
+| etd_at         | Y              | Date and time format (ISO 8601) | Estimated time departure, scheduled pick-up time, using format: 2023-07-28T07:20:24+07:00 (ISO 8601)                                                  |
+| items          | N              | Array                           | -                                                                                                                                                     |
+| item_name      | Y              | string                          | Items to be shipped                                                                                                                                   |
+| quantity       | Y              | decimal                         | The quantity to be sent by default contains 1                                                                                                         |
+| weight         | N              | decimal                         | Weight contains the unit of the item                                                                                                                  |
 
 ## Response
+
+```json
+{
+  "message": "success",
+  "data": {
+    "id": "522fe017-4207-481e-b290-ffc2bb5d801c",
+    "code": "S0503380732",
+    "ref_code": "ID_SO20230726000340",
+    "eprint_receipt": "https://sandbox.envio.co.id/print/resi/522fe017-4207-481e-b290-ffc2bb5d801c"
+  }
+}
+```
 
 # Shipment Tracking
 
-## Request
+## HTTP Request
 
-## Response
+`GET http://API_SERVER/tracking/customer`
 
-# Shipment Cancelling
-
-## Request
-
-## Response
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens" \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require("kittn");
-
-let api = kittn.authorize("meowmeowmeow");
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
+<aside class="notice">
+You must replace <code>API_SERVER</code> with our production or sandbox server that mentioned above.
+</aside>
 
 ### Query Parameters
 
-| Parameter    | Default | Description                                                                      |
-| ------------ | ------- | -------------------------------------------------------------------------------- |
-| include_cats | false   | If set to true, the result will also include cats.                               |
-| available    | true    | If set to false, the result will include kittens that have already been adopted. |
+| Parameter | Required(Y/N) | Description                                          |
+| --------- | ------------- | ---------------------------------------------------- |
+| code      | Y             | You can fill in the Refference Code or Shipment Code |
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+## Response
+
+```json
+{
+  "message": "success",
+  "data": {
+    "id": "53ab0a61-508d-4094-aa61-b4dbce0bd2d2",
+    "code": "S4563844412",
+    "ref_code": "ID_SO20230726000386",
+    "tracking_code": "",
+    "eta_at": "2023-07-27T08:40:00Z",
+    "ata_at": "0001-01-01T00:00:00Z",
+    "received_by": "",
+    "status": "new",
+    "cod_value": 23000,
+    "cod_status": "",
+    "logs": [
+      {
+        "message": "Envio Admin membuat order pengiriman",
+        "recorded_at": "2023-07-28T03:28:00Z",
+        "latitude": 0,
+        "longitude": 0
+      },
+      {
+        "action": "draft_shipment",
+        "message": "Pengiriman anda terbuat",
+        "recorded_at": "0001-01-01T00:00:00Z",
+        "latitude": 0,
+        "longitude": 0
+      }
+    ]
+  }
+}
+```
+
+# Shipment Cancelling
+
+## HTTP Request
+
+`DELETE http://API_SERVER/tms/delivery/shipment/customer`
+
+<aside class="notice">
+You must replace <code>API_SERVER</code> with our production or sandbox server that mentioned above.
 </aside>
 
-## Get a Specific Kitten
+## Request
 
-```ruby
-require 'kittn'
+| Fields   | Required (Y/N) | Type   | Description                                                                               |
+| -------- | -------------- | ------ | ----------------------------------------------------------------------------------------- |
+| ref_code | Y              | String | Your refference code, can be your order number or any refference code in your application |
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2" \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require("kittn");
-
-let api = kittn.authorize("meowmeowmeow");
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
+## Response
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "message": "success"
 }
 ```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-| Parameter | Description                      |
-| --------- | -------------------------------- |
-| ID        | The ID of the kitten to retrieve |
-
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2" \
-  -X DELETE \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require("kittn");
-
-let api = kittn.authorize("meowmeowmeow");
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted": ":("
-}
-```
-
-This endpoint deletes a specific kitten.
-
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-| Parameter | Description                    |
-| --------- | ------------------------------ |
-| ID        | The ID of the kitten to delete |
