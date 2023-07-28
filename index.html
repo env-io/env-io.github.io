@@ -555,7 +555,31 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 <td>Weight contains the unit of the item</td>
 </tr>
 </tbody></table>
-<h2 id='response'>Response</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<h2 id='response'>Response</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>This ID is the unique code of Envio</td>
+</tr>
+<tr>
+<td>code</td>
+<td>This code is Generate for Shipment Code Unique</td>
+</tr>
+<tr>
+<td>ref_code</td>
+<td>Your refference code, can be your order number or any refference code in your application</td>
+</tr>
+<tr>
+<td>eprint_receipt</td>
+<td>You can use this to print on the goods to be sent</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"522fe017-4207-481e-b290-ffc2bb5d801c"</span><span class="p">,</span><span class="w">
@@ -584,15 +608,72 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 <td>You can fill in the Refference Code or Shipment Code</td>
 </tr>
 </tbody></table>
-<h2 id='response-2'>Response</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<h2 id='response-2'>Response</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>This ID is the unique code of Envio</td>
+</tr>
+<tr>
+<td>code</td>
+<td>This code is Generate for Shipment Code Unique</td>
+</tr>
+<tr>
+<td>ref_code</td>
+<td>Your refference code, can be your order number or any refference code in your application</td>
+</tr>
+<tr>
+<td>eta_at</td>
+<td>eta_at is the estimated date the shipment arrived</td>
+</tr>
+<tr>
+<td>ata_at</td>
+<td>ata_at is the date the shipment arrives at the customer</td>
+</tr>
+<tr>
+<td>etd_at</td>
+<td>etd_at is the estimated date the pickup arrived at the location</td>
+</tr>
+<tr>
+<td>atd_at</td>
+<td>atd_at is the pickup date arrival at location</td>
+</tr>
+<tr>
+<td>received_by</td>
+<td>received_by is the name of the recipient of the goods sent</td>
+</tr>
+<tr>
+<td>status</td>
+<td>status is process delivery</td>
+</tr>
+<tr>
+<td>cod_value</td>
+<td>cod_value is your shipment collect the money on delivery</td>
+</tr>
+<tr>
+<td>cod_status</td>
+<td>cod_status is a signification that the money has been paid or not</td>
+</tr>
+<tr>
+<td>logs</td>
+<td>is the shipping process log</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"53ab0a61-508d-4094-aa61-b4dbce0bd2d2"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S4563844412"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"ref_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID_SO20230726000386"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"tracking_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nl">"eta_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-27T08:40:00Z"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"ata_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"etd_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"atd_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"received_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"cod_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">23000</span><span class="p">,</span><span class="w">
@@ -605,7 +686,6 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
         </span><span class="nl">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"draft_shipment"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pengiriman anda terbuat"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"recorded_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
