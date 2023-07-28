@@ -22,10 +22,11 @@ This API is used for Envio Logistics client that use our distribution service
 to create, cancel and track the shipment.
 
 API server address:
-| Type | Address |
-| ------------ | -------------------------------------------------------------------------------- |
-| Sandbox | https://api.envio.co.id/sandbox |
-| Production | https://api.envio.co.id/v1 |
+
+| Type       | Address                         |
+| ---------- | ------------------------------- |
+| Sandbox    | https://api.envio.co.id/sandbox |
+| Production | https://api.envio.co.id/v1      |
 
 # Authentication
 
@@ -48,7 +49,7 @@ You must replace <code>API_KEY</code> with your personal API key.
 
 ## HTTP Request
 
-`POST http://API_SERVER/tms/delivery/shipment/customer`
+`POST http://API_SERVER/tms/delivery/distribution`
 
 <aside class="notice">
 You must replace <code>API_SERVER</code> with our production or sandbox server that mentioned above.
@@ -100,7 +101,7 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 
 ## HTTP Request
 
-`GET http://API_SERVER/tracking/customer`
+`GET http://API_SERVER/tracking/distribution`
 
 <aside class="notice">
 You must replace <code>API_SERVER</code> with our production or sandbox server that mentioned above.
@@ -151,7 +152,7 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 
 ## HTTP Request
 
-`DELETE http://API_SERVER/tms/delivery/shipment/customer`
+`DELETE http://API_SERVER/tms/delivery/distribution`
 
 <aside class="notice">
 You must replace <code>API_SERVER</code> with our production or sandbox server that mentioned above.
