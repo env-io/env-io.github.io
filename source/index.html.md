@@ -85,6 +85,13 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 
 ## Response
 
+| Parameter      | Description                                                                               |
+| -------------- | ----------------------------------------------------------------------------------------- |
+| id             | This ID is the unique code of Envio                                                       |
+| code           | This code is Generate for Shipment Code Unique                                            |
+| ref_code       | Your refference code, can be your order number or any refference code in your application |
+| eprint_receipt | You can use this to print on the goods to be sent                                         |
+
 ```json
 {
   "message": "success",
@@ -115,6 +122,29 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 
 ## Response
 
+| Parameter   | Description                                                                                 |
+| ----------- | ------------------------------------------------------------------------------------------- |
+| id          | This ID is the unique code of Envio                                                         |
+| code        | This code is Generate for Shipment Code Unique                                              |
+| ref_code    | Your refference code, can be your order number or any refference code in your application   |
+| eta_at      | eta_at is the estimated date the shipment arrived                                           |
+| ata_at      | ata_at is the date the shipment arrives at the customer                                     |
+| etd_at      | etd_at is the estimated date the pickup arrived at the location                             |
+| atd_at      | atd_at is the pickup date arrival at location                                               |
+| received_by | received_by is the name of the recipient of the goods sent                                  |
+| status      | - new (new at the time of order creation)                                                   |
+|             | - new (new at the time of order creation)                                                   |
+|             | - on_pickup (on pickup when the driver picks up goods)                                      |
+|             | - on_delivery (on delivery when the driver is delivering goods to the recipient's location) |
+|             | - on_transit (on transit when goods are in transit between hubs / consoles)                 |
+|             | - Console (console goods are being consoled)                                                |
+|             | - delivered (delivered delivery has arrived at its destination)                             |
+|             | - disputed (disputed delivery failed to reach destination)                                  |
+| cod_value   | cod_value is your shipment collect the money on delivery                                    |
+| cod_status  | - '' (cod status unpaid)                                                                    |
+|             | - paided (cod status already paid)                                                          |
+| logs        | is the shipping process log                                                                 |
+
 ```json
 {
   "message": "success",
@@ -122,9 +152,10 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
     "id": "53ab0a61-508d-4094-aa61-b4dbce0bd2d2",
     "code": "S4563844412",
     "ref_code": "ID_SO20230726000386",
-    "tracking_code": "",
     "eta_at": "2023-07-27T08:40:00Z",
     "ata_at": "0001-01-01T00:00:00Z",
+    "etd_at": "0001-01-01T00:00:00Z",
+    "atd_at": "0001-01-01T00:00:00Z",
     "received_by": "",
     "status": "new",
     "cod_value": 23000,
@@ -137,7 +168,6 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
         "longitude": 0
       },
       {
-        "action": "draft_shipment",
         "message": "Pengiriman anda terbuat",
         "recorded_at": "0001-01-01T00:00:00Z",
         "latitude": 0,
