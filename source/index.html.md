@@ -2,14 +2,7 @@
 title: API Reference
 
 language_tabs: # must be one of https://github.com/rouge-ruby/rouge/wiki/List-of-supported-languages-and-lexers
-  - shell
-  - ruby
-  - python
-  - javascript
-
-toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
+  - http
 
 includes:
   - errors
@@ -20,58 +13,73 @@ code_clipboard: true
 
 meta:
   - name: description
-    content: Documentation for the Kittn API
+    content: Documentation for Envio Logistics Distribution Service API
 ---
 
-# Introduction
+# Overview
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+This API is used for Envio Logistics client that use our distribution service
+to create, cancel and track the shipment.
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
-
-This example API documentation page was created with [Slate](https://github.com/slatedocs/slate). Feel free to edit it and use it as a base for your own API's documentation.
+API server address:
+| Type | Address |
+| ------------ | -------------------------------------------------------------------------------- |
+| Sandbox | https://api.envio.co.id/sandbox |
+| Production | https://api.envio.co.id/v1 |
 
 # Authentication
 
-> To authorize, use this code:
+Envio uses API Keys to allow access to the API. You can get your API KEY in our client portal or request to envio sales person.
 
-```ruby
-require 'kittn'
+Envio expects for the API Key to be included in all API request to the server
+in a header or in url query parameters that looks like the following:
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
+`Authorization: Bearer API_KEY`
 
-```python
-import kittn
+or
 
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here" \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+`https://api.envio.co.id/sandbox?token=API_KEY`
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>API_KEY</code> with your personal API key.
 </aside>
 
-# Kittens
+# Shipment Creating
+
+## Http Request
+
+`POST http://API_SERVER/tms/delivery/shipment/customer`
+
+<aside class="notice">
+You must replace <code>API_SERVER</code> with our production or sandbox server that mentioned above.
+</aside>
+
+## Request
+
+| Fields         | Required (Y/N) | Type                            | Description                                                                                                                |
+| -------------- | -------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| ref_code       | N              | String                          | Your refference code, can be your order number or any refference code in your application                                  |
+| cod_value      | N              | Decimal                         | If your shipment need us to collect the money on delivery, fill 0 if you dont need it                                      |
+| pickup_address | Y              | Object                          | -                                                                                                                          |
+| name           | Y              | String                          | -                                                                                                                          |
+| contact_person | Y              | String                          | -                                                                                                                          |
+| recipient      | Y              | Object                          | -                                                                                                                          |
+| eta_at         | Y              | Date and time format (ISO 8601) | Estimated time arrival, if any your shipment has window receiving time, using format: 2023-07-28T07:20:24+07:00 (ISO 8601) |
+| etd_at         | Y              | Date and time format (ISO 8601) | Estimated time departure, scheduled pick-up time, using format: 2023-07-28T07:20:24+07:00 (ISO 8601)                       |
+
+## Response
+
+# Shipment Tracking
+
+## Request
+
+## Response
+
+# Shipment Cancelling
+
+## Request
+
+## Response
 
 ## Get All Kittens
 
@@ -95,9 +103,9 @@ curl "http://example.com/api/kittens" \
 ```
 
 ```javascript
-const kittn = require('kittn');
+const kittn = require("kittn");
 
-let api = kittn.authorize('meowmeowmeow');
+let api = kittn.authorize("meowmeowmeow");
 let kittens = api.kittens.get();
 ```
 
@@ -130,10 +138,10 @@ This endpoint retrieves all kittens.
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+| Parameter    | Default | Description                                                                      |
+| ------------ | ------- | -------------------------------------------------------------------------------- |
+| include_cats | false   | If set to true, the result will also include cats.                               |
+| available    | true    | If set to false, the result will include kittens that have already been adopted. |
 
 <aside class="success">
 Remember — a happy kitten is an authenticated kitten!
@@ -161,9 +169,9 @@ curl "http://example.com/api/kittens/2" \
 ```
 
 ```javascript
-const kittn = require('kittn');
+const kittn = require("kittn");
 
-let api = kittn.authorize('meowmeowmeow');
+let api = kittn.authorize("meowmeowmeow");
 let max = api.kittens.get(2);
 ```
 
@@ -189,9 +197,9 @@ This endpoint retrieves a specific kitten.
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+| Parameter | Description                      |
+| --------- | -------------------------------- |
+| ID        | The ID of the kitten to retrieve |
 
 ## Delete a Specific Kitten
 
@@ -216,9 +224,9 @@ curl "http://example.com/api/kittens/2" \
 ```
 
 ```javascript
-const kittn = require('kittn');
+const kittn = require("kittn");
 
-let api = kittn.authorize('meowmeowmeow');
+let api = kittn.authorize("meowmeowmeow");
 let max = api.kittens.delete(2);
 ```
 
@@ -227,7 +235,7 @@ let max = api.kittens.delete(2);
 ```json
 {
   "id": 2,
-  "deleted" : ":("
+  "deleted": ":("
 }
 ```
 
@@ -239,7 +247,6 @@ This endpoint deletes a specific kitten.
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
-
+| Parameter | Description                    |
+| --------- | ------------------------------ |
+| ID        | The ID of the kitten to delete |
