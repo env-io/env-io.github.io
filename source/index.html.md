@@ -74,7 +74,6 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
     "village": "belimbing"
   },
   "recipient": {
-    "name": "SAPTA APRIYANA",
     "contact_person": "SAPTA APRIYANA",
     "phone_number": "6285156701828",
     "address": "JL.PENGADEGAN UTARA NO.1, KEL.CIKOKO, KEC.PANCORAN,KOTA JAKARTA SELATAN, DKI JAKARTA",
@@ -95,13 +94,15 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 | pickup_address                          | Y              | Object                      | -                                                                                                                          |
 | <div align="right">name</div>           | Y              | String                      | custom name for this address, ex: "DC Jakarta"                                                                             |
 | <div align="right">contact_person</div> | Y              | String                      | Contact person for pickup in your warehouse                                                                                |
+| <div align="right">phone_number</div>   | Y              | String                      | phone number of contact person                                                                                             |
 | <div align="right">address</div>        | Y              | String                      | Detailed address for pick-up                                                                                               |
-| <div align="right">province</div>       | N              | String                      | Name pickup address province                                                                                               |
-| <div align="right">regency</div>        | N              | String                      | Name pickup address regency                                                                                                |
-| <div align="right">district</div>       | N              | String                      | Name pickup address district                                                                                               |
-| <div align="right">village</div>        | N              | String                      | Name pickup address village                                                                                                |
+| <div align="right">province</div>       | N              | String                      | Name of pickup address province                                                                                            |
+| <div align="right">regency</div>        | N              | String                      | Name of pickup address regency                                                                                             |
+| <div align="right">district</div>       | N              | String                      | Name of pickup address district                                                                                            |
+| <div align="right">village</div>        | N              | String                      | Name of pickup address village                                                                                             |
 | recipient                               | Y              | Object                      | -                                                                                                                          |
 | <div align="right">contact_person</div> | Y              | String                      | Recipient full name                                                                                                        |
+| <div align="right">phone_number</div>   | Y              | String                      | phone number of recipient                                                                                                  |
 | <div align="right">address</div>        | Y              | String                      | Detailed address recipient                                                                                                 |
 | <div align="right">province</div>       | N              | String                      | Name of recipient province                                                                                                 |
 | <div align="right">regency</div>        | N              | String                      | Name of recipient regency                                                                                                  |
@@ -163,24 +164,48 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
     "id": "53ab0a61-508d-4094-aa61-b4dbce0bd2d2",
     "code": "S4563844412",
     "ref_code": "ID_SO20230726000386",
-    "eta_at": "2023-07-27T08:40:00Z",
-    "ata_at": "0001-01-01T00:00:00Z",
-    "etd_at": "0001-01-01T00:00:00Z",
-    "atd_at": "0001-01-01T00:00:00Z",
-    "received_by": "",
-    "status": "new",
+    "eta_at": "2023-06-09T23:00:00Z",
+    "ata_at": "2023-06-09T13:46:00Z",
+    "etd_at": "2023-06-08T23:00:00Z",
+    "atd_at": "2023-06-08T19:00:00Z",
+    "received_by": "Robert",
+    "status": "delivered",
     "cod_value": 23000,
-    "cod_status": "",
+    "cod_status": "collected",
     "logs": [
       {
-        "message": "Envio Admin membuat order pengiriman",
-        "recorded_at": "2023-07-28T03:28:00Z",
+        "message": "Pengiriman telah selesai, diterima oleh (Robert)",
+        "recorded_at": "2023-06-09T01:46:00Z",
+        "latitude": -6.2999841,
+        "longitude": 107.1501828
+      },
+      {
+        "message": "Pengiriman dalam perjalanan menuju lokasi anda",
+        "recorded_at": "2023-06-09T01:46:00Z",
+        "latitude": -6.2996329,
+        "longitude": 107.1503314
+      },
+      {
+        "message": "Pengiriman telah dijadwalkan untuk menuju lokasi penerima",
+        "recorded_at": "2023-06-08T16:43:00Z",
+        "latitude": -6.2996329,
+        "longitude": 107.1503314
+      },
+      {
+        "message": "Pengiriman anda berhasil dipickup, barang diterima di (BKI 01 - Chekpoint Bekasi)",
+        "recorded_at": "2023-06-08T16:40:00Z",
+        "latitude": -6.2996329,
+        "longitude": 107.1503314
+      },
+      {
+        "message": "Paket telah dijadwalkan untuk dipickup",
+        "recorded_at": "2023-06-08T16:37:00Z",
         "latitude": 0,
         "longitude": 0
       },
       {
-        "message": "Pengiriman anda terbuat",
-        "recorded_at": "0001-01-01T00:00:00Z",
+        "message": "Satrio membuat order pengiriman",
+        "recorded_at": "2023-06-08T16:24:00Z",
         "latitude": 0,
         "longitude": 0
       }
@@ -207,8 +232,8 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 |             | - delivered (packages delivered)                                                          |
 |             | - disputed (failed to reach recipient, will back to envio hubs)                           |
 | cod_value   | the amount that envio should collecting in delivery                                       |
-| cod_status  | - '' (not collected by envio)                                                             |
-|             | - paided (collected by envio)                                                             |
+| cod_status  | - '' (no cod or not collected by envio)                                                   |
+|             | - collected (collected by envio)                                                          |
 | logs        | shipment process logs                                                                     |
 
 # Shipment Cancelling
