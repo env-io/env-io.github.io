@@ -649,7 +649,35 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 </tr>
 <tr>
 <td>status</td>
-<td>status is process delivery</td>
+<td>- new (new at the time of order creation)</td>
+</tr>
+<tr>
+<td></td>
+<td>- new (new at the time of order creation)</td>
+</tr>
+<tr>
+<td></td>
+<td>- on_pickup (on pickup when the driver picks up goods)</td>
+</tr>
+<tr>
+<td></td>
+<td>- on_delivery (on delivery when the driver is delivering goods to the recipient&#39;s location)</td>
+</tr>
+<tr>
+<td></td>
+<td>- on_transit (on transit when goods are in transit between hubs / consoles)</td>
+</tr>
+<tr>
+<td></td>
+<td>- Console (console goods are being consoled)</td>
+</tr>
+<tr>
+<td></td>
+<td>- delivered (delivered delivery has arrived at its destination)</td>
+</tr>
+<tr>
+<td></td>
+<td>- disputed (disputed delivery failed to reach destination)</td>
 </tr>
 <tr>
 <td>cod_value</td>
@@ -657,7 +685,11 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 </tr>
 <tr>
 <td>cod_status</td>
-<td>cod_status is a signification that the money has been paid or not</td>
+<td>- &#39;&#39; (cod status unpaid)</td>
+</tr>
+<tr>
+<td></td>
+<td>- paided (cod status already paid)</td>
 </tr>
 <tr>
 <td>logs</td>
