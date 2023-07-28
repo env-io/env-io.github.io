@@ -369,11 +369,23 @@
 <p>This API is used for Envio Logistics client that use our distribution service
 to create, cancel and track the shipment.</p>
 
-<p>API server address:
-| Type | Address |
-| ------------ | -------------------------------------------------------------------------------- |
-| Sandbox | https://api.envio.co.id/sandbox |
-| Production | https://api.envio.co.id/v1 |</p>
+<p>API server address:</p>
+
+<table><thead>
+<tr>
+<th>Type</th>
+<th>Address</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Sandbox</td>
+<td>https://api.envio.co.id/sandbox</td>
+</tr>
+<tr>
+<td>Production</td>
+<td>https://api.envio.co.id/v1</td>
+</tr>
+</tbody></table>
 <h1 id='authentication'>Authentication</h1>
 <p>Envio uses API Keys to allow access to the API. You can get your API KEY in our client portal or request to envio sales person.</p>
 
@@ -390,7 +402,7 @@ in a header or in url query parameters that looks like the following:</p>
 You must replace <code>API_KEY</code> with your personal API key.
 </aside>
 <h1 id='shipment-creating'>Shipment Creating</h1><h2 id='http-request'>HTTP Request</h2>
-<p><code>POST http://API_SERVER/tms/delivery/shipment/customer</code></p>
+<p><code>POST http://API_SERVER/tms/delivery/distribution</code></p>
 
 <aside class="notice">
 You must replace <code>API_SERVER</code> with our production or sandbox server that mentioned above.
@@ -553,7 +565,7 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h1 id='shipment-tracking'>Shipment Tracking</h1><h2 id='http-request-2'>HTTP Request</h2>
-<p><code>GET http://API_SERVER/tracking/customer</code></p>
+<p><code>GET http://API_SERVER/tracking/distribution</code></p>
 
 <aside class="notice">
 You must replace <code>API_SERVER</code> with our production or sandbox server that mentioned above.
@@ -603,7 +615,7 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h1 id='shipment-cancelling'>Shipment Cancelling</h1><h2 id='http-request-3'>HTTP Request</h2>
-<p><code>DELETE http://API_SERVER/tms/delivery/shipment/customer</code></p>
+<p><code>DELETE http://API_SERVER/tms/delivery/distribution</code></p>
 
 <aside class="notice">
 You must replace <code>API_SERVER</code> with our production or sandbox server that mentioned above.
