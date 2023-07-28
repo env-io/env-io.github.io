@@ -83,6 +83,42 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 | quantity       | Y              | decimal                         | The quantity to be sent by default contains 1                                                                                                         |
 | weight         | N              | decimal                         | Weight contains the unit of the item                                                                                                                  |
 
+```json
+{
+  "ref_code": "ID_SO20230726000340",
+  "cod_value": 23000,
+  "pickup_address": {
+    "name": "PERGUDANGAN KOSAMBI PERMAI",
+    "contact_person": "PERGUDANGAN KOSAMBI PERMAI",
+    "phone_number": "628767438745",
+    "address": "JL. RAYA PERANCIS NO.17, BELIMBING, KEC. KOSAMBI, KABUPATEN TANGERANG, BANTEN 15212",
+    "province": "Banten",
+    "regency": "kabupaten tangerang",
+    "district": "kosambi",
+    "village": "belimbing"
+  },
+  "recipient": {
+    "name": "SAPTA APRIYANA",
+    "contact_person": "SAPTA APRIYANA",
+    "phone_number": "6285156701828",
+    "address": "JL.PENGADEGAN UTARA NO.1, KEL.CIKOKO, KEC.PANCORAN,KOTA JAKARTA SELATAN, DKI JAKARTA",
+    "province": "DKI Jakarta",
+    "regency": "Jakarta Selatan",
+    "district": "Pancoran",
+    "village": "cikoko"
+  },
+  "eta_at": "2023-07-27T15:40:20+07:00",
+  "etd_at": "2023-07-27T15:40:20+07:00",
+  "items": [
+    {
+      "item_name": "Odol",
+      "quantity": 1,
+      "weight": 500
+    }
+  ]
+}
+```
+
 ## Response
 
 | Parameter      | Description                                                                               |
@@ -193,6 +229,12 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 | Fields   | Required (Y/N) | Type   | Description                                                                               |
 | -------- | -------------- | ------ | ----------------------------------------------------------------------------------------- |
 | ref_code | Y              | String | Your refference code, can be your order number or any refference code in your application |
+
+```json
+{
+  "ref_code": "ID_SO20230726000386"
+}
+```
 
 ## Response
 
