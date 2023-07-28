@@ -46,7 +46,7 @@ You must replace <code>API_KEY</code> with your personal API key.
 
 # Shipment Creating
 
-## Http Request
+## HTTP Request
 
 `POST http://API_SERVER/tms/delivery/shipment/customer`
 
