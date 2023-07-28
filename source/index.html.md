@@ -1,7 +1,7 @@
 ---
 title: API Reference
 
-language_tabs: # must be one of https://github.com/rouge-ruby/rouge/wiki/List-of-supported-languages-and-lexers
+language_tabs:
   - json
 
 includes:
@@ -57,7 +57,7 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 
 ## Request
 
-> Exampe Request body:
+> Example Body Request:
 
 ```json
 {
@@ -113,7 +113,7 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 
 ## Response
 
-> Exampe Response body:
+> Example Body Response:
 
 ```json
 {
@@ -144,7 +144,7 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 You must replace <code>API_SERVER</code> with our production or sandbox server that mentioned above.
 </aside>
 
-### Request
+## Request
 
 | Query Parameter | Required(Y/N) | Description                                                   |
 | --------------- | ------------- | ------------------------------------------------------------- |
@@ -154,7 +154,7 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 
 ## Response
 
-> Exampe Response body:
+> Example Body Response:
 
 ```json
 {
@@ -223,7 +223,7 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 
 ## Request
 
-> Exampe Body Request:
+> Example Body Request:
 
 ```json
 {
@@ -236,6 +236,8 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 | ref_code | Y              | String | Your refference code that you input before |
 
 ## Response
+
+> Example Body Response:
 
 ```json
 {
