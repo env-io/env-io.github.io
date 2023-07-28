@@ -2,7 +2,7 @@
 title: API Reference
 
 language_tabs: # must be one of https://github.com/rouge-ruby/rouge/wiki/List-of-supported-languages-and-lexers
-  - http
+  - json
 
 includes:
   - errors
@@ -33,11 +33,11 @@ API server address:
 Envio uses API Keys to allow access to the API. You can get your API KEY in our client portal or request to envio sales person.
 
 Envio expects for the API Key to be included in all API request to the server
-in a header or in url query parameters that looks like the following:
+in a header that looks like the following:
 
 `Authorization: Bearer API_KEY`
 
-or
+or in url query parameters
 
 `https://api.envio.co.id/sandbox?token=API_KEY`
 
@@ -57,31 +57,7 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 
 ## Request
 
-| Fields         | Required (Y/N) | Type                            | Description                                                                                                                                           |
-| -------------- | -------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ref_code       | Y              | String                          | Your refference code, can be your order number or any refference code in your application                                                             |
-| cod_value      | N              | Decimal                         | If your shipment need us to collect the money on delivery, fill 0 if you dont need it                                                                 |
-| pickup_address | Y              | Object                          | This pickup address is for the pickup address for the goods to be sent                                                                                |
-| name           | Y              | String                          | Pickup Address name                                                                                                                                   |
-| contact_person | Y              | String                          | Pickup Address contatct person                                                                                                                        |
-| address        | Y              | String                          | You can fill in the detailed address of Jl, village, district, regency, province here or you fill in the request village, district, regency, province |
-| province       | N              | String                          | Province of the pickup address                                                                                                                        |
-| regency        | N              | String                          | Regency of the pickup address                                                                                                                         |
-| district       | N              | String                          | District of the pickup address                                                                                                                        |
-| village        | N              | String                          | Village of the pickup address                                                                                                                         |
-| recipient      | Y              | Object                          | This recipient is for the destination address of the goods to be sent                                                                                 |
-| contact_person | Y              | String                          | Recipeint Contact person                                                                                                                              |
-| address        | Y              | String                          | You can fill in the detailed address of Jl, village, district, regency, province here or you fill in the request village, district, regency, province |
-| province       | N              | String                          | Province of the recipient                                                                                                                             |
-| regency        | N              | String                          | Regency of the recipient                                                                                                                              |
-| district       | N              | String                          | District of the recipient                                                                                                                             |
-| village        | N              | String                          | Village of the recipient                                                                                                                              |
-| eta_at         | Y              | Date and time format (ISO 8601) | Estimated time arrival, if any your shipment has window receiving time, using format: 2023-07-28T07:20:24+07:00 (ISO 8601)                            |
-| etd_at         | Y              | Date and time format (ISO 8601) | Estimated time departure, scheduled pick-up time, using format: 2023-07-28T07:20:24+07:00 (ISO 8601)                                                  |
-| items          | N              | Array                           | -                                                                                                                                                     |
-| item_name      | Y              | string                          | Items to be shipped                                                                                                                                   |
-| quantity       | Y              | decimal                         | The quantity to be sent by default contains 1                                                                                                         |
-| weight         | N              | decimal                         | Weight contains the unit of the item                                                                                                                  |
+> Exampe Request body:
 
 ```json
 {
@@ -108,25 +84,36 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
     "village": "cikoko"
   },
   "eta_at": "2023-07-27T15:40:20+07:00",
-  "etd_at": "2023-07-27T15:40:20+07:00",
-  "items": [
-    {
-      "item_name": "Odol",
-      "quantity": 1,
-      "weight": 500
-    }
-  ]
+  "etd_at": "2023-07-27T15:40:20+07:00"
 }
 ```
 
+| Fields                                  | Required (Y/N) | Type                        | Description                                                                                                                |
+| --------------------------------------- | -------------- | --------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| ref_code                                | Y              | String                      | Your refference code, can be your order number or any refference code in your application                                  |
+| cod_value                               | N              | Decimal                     | If your shipment need us to collect the money on delivery, fill 0 if you dont need it                                      |
+| pickup_address                          | Y              | Object                      | -                                                                                                                          |
+| <div align="right">name</div>           | Y              | String                      | custom name for this address, ex: "DC Jakarta"                                                                             |
+| <div align="right">contact_person</div> | Y              | String                      | Contact person for pickup in your warehouse                                                                                |
+| <div align="right">address</div>        | Y              | String                      | Detailed address for pick-up                                                                                               |
+| <div align="right">province</div>       | N              | String                      | Name pickup address province                                                                                               |
+| <div align="right">regency</div>        | N              | String                      | Name pickup address regency                                                                                                |
+| <div align="right">district</div>       | N              | String                      | Name pickup address district                                                                                               |
+| <div align="right">village</div>        | N              | String                      | Name pickup address village                                                                                                |
+| recipient                               | Y              | Object                      | -                                                                                                                          |
+| <div align="right">contact_person</div> | Y              | String                      | Recipient full name                                                                                                        |
+| <div align="right">address</div>        | Y              | String                      | Detailed address recipient                                                                                                 |
+| <div align="right">province</div>       | N              | String                      | Name of recipient province                                                                                                 |
+| <div align="right">regency</div>        | N              | String                      | Name of recipient regency                                                                                                  |
+| <div align="right">district</div>       | N              | String                      | Name of recipient district                                                                                                 |
+| <div align="right">village</div>        | N              | String                      | Name of recipient village                                                                                                  |
+| eta_at                                  | Y              | Date time format (ISO 8601) | Estimated time arrival, if any your shipment has window receiving time, using format: 2023-07-28T07:20:24+07:00 (ISO 8601) |
+| etd_at                                  | Y              | Date time format (ISO 8601) | Estimated time departure, scheduled pick-up time, using format: 2023-07-28T07:20:24+07:00 (ISO 8601)                       |
+|                                         |
+
 ## Response
 
-| Parameter      | Description                                                                               |
-| -------------- | ----------------------------------------------------------------------------------------- |
-| id             | This ID is the unique code of Envio                                                       |
-| code           | This code is Generate for Shipment Code Unique                                            |
-| ref_code       | Your refference code, can be your order number or any refference code in your application |
-| eprint_receipt | You can use this to print on the goods to be sent                                         |
+> Exampe Response body:
 
 ```json
 {
@@ -140,6 +127,13 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 }
 ```
 
+| Parameter      | Description                                                                               |
+| -------------- | ----------------------------------------------------------------------------------------- |
+| id             | Envio shipment ids                                                                        |
+| code           | Envio Unique shipment code                                                                |
+| ref_code       | Your refference code, can be your order number or any refference code in your application |
+| eprint_receipt | link to print receipt                                                                     |
+
 # Shipment Tracking
 
 ## HTTP Request
@@ -150,35 +144,17 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 You must replace <code>API_SERVER</code> with our production or sandbox server that mentioned above.
 </aside>
 
-### Query Parameters
+### Request
 
-| Parameter | Required(Y/N) | Description                                          |
-| --------- | ------------- | ---------------------------------------------------- |
-| code      | Y             | You can fill in the Refference Code or Shipment Code |
+| Query Parameter | Required(Y/N) | Description                                                   |
+| --------------- | ------------- | ------------------------------------------------------------- |
+| code            | Y             | You can fill with your refference code or envio shipment code |
+
+`GET http://API_SERVER/tracking/distribution?code=ID_SO20230726000340`
 
 ## Response
 
-| Parameter   | Description                                                                                 |
-| ----------- | ------------------------------------------------------------------------------------------- |
-| id          | This ID is the unique code of Envio                                                         |
-| code        | This code is Generate for Shipment Code Unique                                              |
-| ref_code    | Your refference code, can be your order number or any refference code in your application   |
-| eta_at      | eta_at is the estimated date the shipment arrived                                           |
-| ata_at      | ata_at is the date the shipment arrives at the customer                                     |
-| etd_at      | etd_at is the estimated date the pickup arrived at the location                             |
-| atd_at      | atd_at is the pickup date arrival at location                                               |
-| received_by | received_by is the name of the recipient of the goods sent                                  |
-| status      | - new (new at the time of order creation)                                                   |
-|             | - on_pickup (on pickup when the driver picks up goods)                                      |
-|             | - on_delivery (on delivery when the driver is delivering goods to the recipient's location) |
-|             | - on_transit (on transit when goods are in transit between hubs / consoles)                 |
-|             | - Console (console goods are being consoled)                                                |
-|             | - delivered (delivered delivery has arrived at its destination)                             |
-|             | - disputed (disputed delivery failed to reach destination)                                  |
-| cod_value   | cod_value is your shipment collect the money on delivery                                    |
-| cod_status  | - '' (cod status unpaid)                                                                    |
-|             | - paided (cod status already paid)                                                          |
-| logs        | is the shipping process log                                                                 |
+> Exampe Response body:
 
 ```json
 {
@@ -213,6 +189,28 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 }
 ```
 
+| Parameter   | Description                                                                               |
+| ----------- | ----------------------------------------------------------------------------------------- |
+| id          | Envio shipment ids                                                                        |
+| code        | Envio unique shipment code                                                                |
+| ref_code    | Your refference code, can be your order number or any refference code in your application |
+| eta_at      | estimated time arrival -- estimated time for delivery, Date time format (ISO 8601)        |
+| ata_at      | actual time arrival -- actual delivered time, Date time format (ISO 8601)                 |
+| etd_at      | estimated time departure -- estimated time for pickup, Date time format (ISO 8601)        |
+| atd_at      | actual time departure -- actual pickup time, Date time format (ISO 8601)                  |
+| received_by | name of who received the packages                                                         |
+| status      | - new (shipment was created)                                                              |
+|             | - on_pickup (packages is in pickup process)                                               |
+|             | - on_delivery (packages is on the way to the recipient's location)                        |
+|             | - on_transit (packages is on the way to envio hubs)                                       |
+|             | - Console (packages is in envio hubs)                                                     |
+|             | - delivered (packages delivered)                                                          |
+|             | - disputed (failed to reach recipient, will back to envio hubs)                           |
+| cod_value   | the amount that envio should collecting in delivery                                       |
+| cod_status  | - '' (not collected by envio)                                                             |
+|             | - paided (collected by envio)                                                             |
+| logs        | shipment process logs                                                                     |
+
 # Shipment Cancelling
 
 ## HTTP Request
@@ -225,15 +223,17 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 
 ## Request
 
-| Fields   | Required (Y/N) | Type   | Description                                                                               |
-| -------- | -------------- | ------ | ----------------------------------------------------------------------------------------- |
-| ref_code | Y              | String | Your refference code, can be your order number or any refference code in your application |
+> Exampe Body Request:
 
 ```json
 {
   "ref_code": "ID_SO20230726000386"
 }
 ```
+
+| Fields   | Required (Y/N) | Type   | Description                                |
+| -------- | -------------- | ------ | ------------------------------------------ |
+| ref_code | Y              | String | Your refference code that you input before |
 
 ## Response
 
