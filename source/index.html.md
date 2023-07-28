@@ -94,7 +94,7 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 | pickup_address                          | Y              | Object                      | -                                                                                                                          |
 | <div align="right">name</div>           | Y              | String                      | custom name for this address, ex: "DC Jakarta"                                                                             |
 | <div align="right">contact_person</div> | Y              | String                      | Contact person for pickup in your warehouse                                                                                |
-| <div align="right">phone_number</div>   | Y              | String                      | phone number of contact person                                                                                             |
+| <div align="right">phone_number</div>   | Y              | String                      | Phone number of contact person                                                                                             |
 | <div align="right">address</div>        | Y              | String                      | Detailed address for pick-up                                                                                               |
 | <div align="right">province</div>       | N              | String                      | Name of pickup address province                                                                                            |
 | <div align="right">regency</div>        | N              | String                      | Name of pickup address regency                                                                                             |
@@ -102,7 +102,7 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 | <div align="right">village</div>        | N              | String                      | Name of pickup address village                                                                                             |
 | recipient                               | Y              | Object                      | -                                                                                                                          |
 | <div align="right">contact_person</div> | Y              | String                      | Recipient full name                                                                                                        |
-| <div align="right">phone_number</div>   | Y              | String                      | phone number of recipient                                                                                                  |
+| <div align="right">phone_number</div>   | Y              | String                      | Phone number of recipient                                                                                                  |
 | <div align="right">address</div>        | Y              | String                      | Detailed address recipient                                                                                                 |
 | <div align="right">province</div>       | N              | String                      | Name of recipient province                                                                                                 |
 | <div align="right">regency</div>        | N              | String                      | Name of recipient regency                                                                                                  |
@@ -128,12 +128,12 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 }
 ```
 
-| Parameter      | Description                                                                               |
-| -------------- | ----------------------------------------------------------------------------------------- |
-| id             | Envio shipment ids                                                                        |
-| code           | Envio Unique shipment code                                                                |
-| ref_code       | Your refference code, can be your order number or any refference code in your application |
-| eprint_receipt | link to print receipt                                                                     |
+| Parameter      | Description                                |
+| -------------- | ------------------------------------------ |
+| id             | Envio shipment ids                         |
+| code           | Envio unique shipment code (resi number)   |
+| ref_code       | Your refference code that you input before |
+| eprint_receipt | link to print receipt                      |
 
 # Shipment Tracking
 
