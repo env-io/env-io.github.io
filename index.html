@@ -295,7 +295,7 @@
     </script>
   </head>
 
-  <body class="index" data-languages="[&quot;http&quot;]">
+  <body class="index" data-languages="[&quot;json&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -305,7 +305,7 @@
     <div class="toc-wrapper">
       <img src="images/logo-b9e98eda.png" class="logo" alt="" />
         <div class="lang-selector">
-              <a href="#" data-language-name="http">http</a>
+              <a href="#" data-language-name="json">json</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -350,7 +350,7 @@
                     <a href="#http-request-3" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
                   </li>
                   <li>
-                    <a href="#request-2" class="toc-h2 toc-link" data-title="Request">Request</a>
+                    <a href="#request-3" class="toc-h2 toc-link" data-title="Request">Request</a>
                   </li>
                   <li>
                     <a href="#response-3" class="toc-h2 toc-link" data-title="Response">Response</a>
@@ -390,11 +390,11 @@ to create, cancel and track the shipment.</p>
 <p>Envio uses API Keys to allow access to the API. You can get your API KEY in our client portal or request to envio sales person.</p>
 
 <p>Envio expects for the API Key to be included in all API request to the server
-in a header or in url query parameters that looks like the following:</p>
+in a header that looks like the following:</p>
 
 <p><code>Authorization: Bearer API_KEY</code></p>
 
-<p>or</p>
+<p>or in url query parameters</p>
 
 <p><code>https://api.envio.co.id/sandbox?token=API_KEY</code></p>
 
@@ -408,153 +408,9 @@ You must replace <code>API_KEY</code> with your personal API key.
 You must replace <code>API_SERVER</code> with our production or sandbox server that mentioned above.
 </aside>
 <h2 id='request'>Request</h2>
-<table><thead>
-<tr>
-<th>Fields</th>
-<th>Required (Y/N)</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ref_code</td>
-<td>Y</td>
-<td>String</td>
-<td>Your refference code, can be your order number or any refference code in your application</td>
-</tr>
-<tr>
-<td>cod_value</td>
-<td>N</td>
-<td>Decimal</td>
-<td>If your shipment need us to collect the money on delivery, fill 0 if you dont need it</td>
-</tr>
-<tr>
-<td>pickup_address</td>
-<td>Y</td>
-<td>Object</td>
-<td>This pickup address is for the pickup address for the goods to be sent</td>
-</tr>
-<tr>
-<td>name</td>
-<td>Y</td>
-<td>String</td>
-<td>Pickup Address name</td>
-</tr>
-<tr>
-<td>contact_person</td>
-<td>Y</td>
-<td>String</td>
-<td>Pickup Address contatct person</td>
-</tr>
-<tr>
-<td>address</td>
-<td>Y</td>
-<td>String</td>
-<td>You can fill in the detailed address of Jl, village, district, regency, province here or you fill in the request village, district, regency, province</td>
-</tr>
-<tr>
-<td>province</td>
-<td>N</td>
-<td>String</td>
-<td>Province of the pickup address</td>
-</tr>
-<tr>
-<td>regency</td>
-<td>N</td>
-<td>String</td>
-<td>Regency of the pickup address</td>
-</tr>
-<tr>
-<td>district</td>
-<td>N</td>
-<td>String</td>
-<td>District of the pickup address</td>
-</tr>
-<tr>
-<td>village</td>
-<td>N</td>
-<td>String</td>
-<td>Village of the pickup address</td>
-</tr>
-<tr>
-<td>recipient</td>
-<td>Y</td>
-<td>Object</td>
-<td>This recipient is for the destination address of the goods to be sent</td>
-</tr>
-<tr>
-<td>contact_person</td>
-<td>Y</td>
-<td>String</td>
-<td>Recipeint Contact person</td>
-</tr>
-<tr>
-<td>address</td>
-<td>Y</td>
-<td>String</td>
-<td>You can fill in the detailed address of Jl, village, district, regency, province here or you fill in the request village, district, regency, province</td>
-</tr>
-<tr>
-<td>province</td>
-<td>N</td>
-<td>String</td>
-<td>Province of the recipient</td>
-</tr>
-<tr>
-<td>regency</td>
-<td>N</td>
-<td>String</td>
-<td>Regency of the recipient</td>
-</tr>
-<tr>
-<td>district</td>
-<td>N</td>
-<td>String</td>
-<td>District of the recipient</td>
-</tr>
-<tr>
-<td>village</td>
-<td>N</td>
-<td>String</td>
-<td>Village of the recipient</td>
-</tr>
-<tr>
-<td>eta_at</td>
-<td>Y</td>
-<td>Date and time format (ISO 8601)</td>
-<td>Estimated time arrival, if any your shipment has window receiving time, using format: 2023-07-28T07:20:24+07:00 (ISO 8601)</td>
-</tr>
-<tr>
-<td>etd_at</td>
-<td>Y</td>
-<td>Date and time format (ISO 8601)</td>
-<td>Estimated time departure, scheduled pick-up time, using format: 2023-07-28T07:20:24+07:00 (ISO 8601)</td>
-</tr>
-<tr>
-<td>items</td>
-<td>N</td>
-<td>Array</td>
-<td>-</td>
-</tr>
-<tr>
-<td>item_name</td>
-<td>Y</td>
-<td>string</td>
-<td>Items to be shipped</td>
-</tr>
-<tr>
-<td>quantity</td>
-<td>Y</td>
-<td>decimal</td>
-<td>The quantity to be sent by default contains 1</td>
-</tr>
-<tr>
-<td>weight</td>
-<td>N</td>
-<td>decimal</td>
-<td>Weight contains the unit of the item</td>
-</tr>
-</tbody></table>
+<blockquote>
+<p>Exampe Request body:</p>
+</blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"ref_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID_SO20230726000340"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"cod_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">23000</span><span class="p">,</span><span class="w">
@@ -579,39 +435,142 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
     </span><span class="nl">"village"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cikoko"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nl">"eta_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-27T15:40:20+07:00"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"etd_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-27T15:40:20+07:00"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"item_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Odol"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+  </span><span class="nl">"etd_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-27T15:40:20+07:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h2 id='response'>Response</h2>
+</span></code></pre></div>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Fields</th>
+<th>Required (Y/N)</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>This ID is the unique code of Envio</td>
-</tr>
-<tr>
-<td>code</td>
-<td>This code is Generate for Shipment Code Unique</td>
-</tr>
-<tr>
 <td>ref_code</td>
+<td>Y</td>
+<td>String</td>
 <td>Your refference code, can be your order number or any refference code in your application</td>
 </tr>
 <tr>
-<td>eprint_receipt</td>
-<td>You can use this to print on the goods to be sent</td>
+<td>cod_value</td>
+<td>N</td>
+<td>Decimal</td>
+<td>If your shipment need us to collect the money on delivery, fill 0 if you dont need it</td>
+</tr>
+<tr>
+<td>pickup_address</td>
+<td>Y</td>
+<td>Object</td>
+<td>-</td>
+</tr>
+<tr>
+<td><div align="right">name</div></td>
+<td>Y</td>
+<td>String</td>
+<td>custom name for this address, ex: &quot;DC Jakarta&quot;</td>
+</tr>
+<tr>
+<td><div align="right">contact_person</div></td>
+<td>Y</td>
+<td>String</td>
+<td>Contact person for pickup in your warehouse</td>
+</tr>
+<tr>
+<td><div align="right">address</div></td>
+<td>Y</td>
+<td>String</td>
+<td>Detailed address for pick-up</td>
+</tr>
+<tr>
+<td><div align="right">province</div></td>
+<td>N</td>
+<td>String</td>
+<td>Name pickup address province</td>
+</tr>
+<tr>
+<td><div align="right">regency</div></td>
+<td>N</td>
+<td>String</td>
+<td>Name pickup address regency</td>
+</tr>
+<tr>
+<td><div align="right">district</div></td>
+<td>N</td>
+<td>String</td>
+<td>Name pickup address district</td>
+</tr>
+<tr>
+<td><div align="right">village</div></td>
+<td>N</td>
+<td>String</td>
+<td>Name pickup address village</td>
+</tr>
+<tr>
+<td>recipient</td>
+<td>Y</td>
+<td>Object</td>
+<td>-</td>
+</tr>
+<tr>
+<td><div align="right">contact_person</div></td>
+<td>Y</td>
+<td>String</td>
+<td>Recipient full name</td>
+</tr>
+<tr>
+<td><div align="right">address</div></td>
+<td>Y</td>
+<td>String</td>
+<td>Detailed address recipient</td>
+</tr>
+<tr>
+<td><div align="right">province</div></td>
+<td>N</td>
+<td>String</td>
+<td>Name of recipient province</td>
+</tr>
+<tr>
+<td><div align="right">regency</div></td>
+<td>N</td>
+<td>String</td>
+<td>Name of recipient regency</td>
+</tr>
+<tr>
+<td><div align="right">district</div></td>
+<td>N</td>
+<td>String</td>
+<td>Name of recipient district</td>
+</tr>
+<tr>
+<td><div align="right">village</div></td>
+<td>N</td>
+<td>String</td>
+<td>Name of recipient village</td>
+</tr>
+<tr>
+<td>eta_at</td>
+<td>Y</td>
+<td>Date time format (ISO 8601)</td>
+<td>Estimated time arrival, if any your shipment has window receiving time, using format: 2023-07-28T07:20:24+07:00 (ISO 8601)</td>
+</tr>
+<tr>
+<td>etd_at</td>
+<td>Y</td>
+<td>Date time format (ISO 8601)</td>
+<td>Estimated time departure, scheduled pick-up time, using format: 2023-07-28T07:20:24+07:00 (ISO 8601)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody></table>
+<h2 id='response'>Response</h2>
+<blockquote>
+<p>Exampe Response body:</p>
+</blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -621,27 +580,7 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
     </span><span class="nl">"eprint_receipt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://sandbox.envio.co.id/print/resi/522fe017-4207-481e-b290-ffc2bb5d801c"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h1 id='shipment-tracking'>Shipment Tracking</h1><h2 id='http-request-2'>HTTP Request</h2>
-<p><code>GET http://API_SERVER/tracking/distribution</code></p>
-
-<aside class="notice">
-You must replace <code>API_SERVER</code> with our production or sandbox server that mentioned above.
-</aside>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required(Y/N)</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>code</td>
-<td>Y</td>
-<td>You can fill in the Refference Code or Shipment Code</td>
-</tr>
-</tbody></table>
-<h2 id='response-2'>Response</h2>
+</span></code></pre></div>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -650,81 +589,47 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>This ID is the unique code of Envio</td>
+<td>Envio shipment ids</td>
 </tr>
 <tr>
 <td>code</td>
-<td>This code is Generate for Shipment Code Unique</td>
+<td>Envio Unique shipment code</td>
 </tr>
 <tr>
 <td>ref_code</td>
 <td>Your refference code, can be your order number or any refference code in your application</td>
 </tr>
 <tr>
-<td>eta_at</td>
-<td>eta_at is the estimated date the shipment arrived</td>
-</tr>
-<tr>
-<td>ata_at</td>
-<td>ata_at is the date the shipment arrives at the customer</td>
-</tr>
-<tr>
-<td>etd_at</td>
-<td>etd_at is the estimated date the pickup arrived at the location</td>
-</tr>
-<tr>
-<td>atd_at</td>
-<td>atd_at is the pickup date arrival at location</td>
-</tr>
-<tr>
-<td>received_by</td>
-<td>received_by is the name of the recipient of the goods sent</td>
-</tr>
-<tr>
-<td>status</td>
-<td>- new (new at the time of order creation)</td>
-</tr>
-<tr>
-<td></td>
-<td>- on_pickup (on pickup when the driver picks up goods)</td>
-</tr>
-<tr>
-<td></td>
-<td>- on_delivery (on delivery when the driver is delivering goods to the recipient&#39;s location)</td>
-</tr>
-<tr>
-<td></td>
-<td>- on_transit (on transit when goods are in transit between hubs / consoles)</td>
-</tr>
-<tr>
-<td></td>
-<td>- Console (console goods are being consoled)</td>
-</tr>
-<tr>
-<td></td>
-<td>- delivered (delivered delivery has arrived at its destination)</td>
-</tr>
-<tr>
-<td></td>
-<td>- disputed (disputed delivery failed to reach destination)</td>
-</tr>
-<tr>
-<td>cod_value</td>
-<td>cod_value is your shipment collect the money on delivery</td>
-</tr>
-<tr>
-<td>cod_status</td>
-<td>- &#39;&#39; (cod status unpaid)</td>
-</tr>
-<tr>
-<td></td>
-<td>- paided (cod status already paid)</td>
-</tr>
-<tr>
-<td>logs</td>
-<td>is the shipping process log</td>
+<td>eprint_receipt</td>
+<td>link to print receipt</td>
 </tr>
 </tbody></table>
+<h1 id='shipment-tracking'>Shipment Tracking</h1><h2 id='http-request-2'>HTTP Request</h2>
+<p><code>GET http://API_SERVER/tracking/distribution</code></p>
+
+<aside class="notice">
+You must replace <code>API_SERVER</code> with our production or sandbox server that mentioned above.
+</aside>
+<h3 id='request-2'>Request</h3>
+<table><thead>
+<tr>
+<th>Query Parameter</th>
+<th>Required(Y/N)</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>Y</td>
+<td>You can fill with your refference code or envio shipment code</td>
+</tr>
+</tbody></table>
+
+<p><code>GET http://API_SERVER/tracking/distribution?code=ID_SO20230726000340</code></p>
+<h2 id='response-2'>Response</h2>
+<blockquote>
+<p>Exampe Response body:</p>
+</blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -755,13 +660,104 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h1 id='shipment-cancelling'>Shipment Cancelling</h1><h2 id='http-request-3'>HTTP Request</h2>
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Envio shipment ids</td>
+</tr>
+<tr>
+<td>code</td>
+<td>Envio unique shipment code</td>
+</tr>
+<tr>
+<td>ref_code</td>
+<td>Your refference code, can be your order number or any refference code in your application</td>
+</tr>
+<tr>
+<td>eta_at</td>
+<td>estimated time arrival -- estimated time for delivery, Date time format (ISO 8601)</td>
+</tr>
+<tr>
+<td>ata_at</td>
+<td>actual time arrival -- actual delivered time, Date time format (ISO 8601)</td>
+</tr>
+<tr>
+<td>etd_at</td>
+<td>estimated time departure -- estimated time for pickup, Date time format (ISO 8601)</td>
+</tr>
+<tr>
+<td>atd_at</td>
+<td>actual time departure -- actual pickup time, Date time format (ISO 8601)</td>
+</tr>
+<tr>
+<td>received_by</td>
+<td>name of who received the packages</td>
+</tr>
+<tr>
+<td>status</td>
+<td>- new (shipment was created)</td>
+</tr>
+<tr>
+<td></td>
+<td>- on_pickup (packages is in pickup process)</td>
+</tr>
+<tr>
+<td></td>
+<td>- on_delivery (packages is on the way to the recipient&#39;s location)</td>
+</tr>
+<tr>
+<td></td>
+<td>- on_transit (packages is on the way to envio hubs)</td>
+</tr>
+<tr>
+<td></td>
+<td>- Console (packages is in envio hubs)</td>
+</tr>
+<tr>
+<td></td>
+<td>- delivered (packages delivered)</td>
+</tr>
+<tr>
+<td></td>
+<td>- disputed (failed to reach recipient, will back to envio hubs)</td>
+</tr>
+<tr>
+<td>cod_value</td>
+<td>the amount that envio should collecting in delivery</td>
+</tr>
+<tr>
+<td>cod_status</td>
+<td>- &#39;&#39; (not collected by envio)</td>
+</tr>
+<tr>
+<td></td>
+<td>- paided (collected by envio)</td>
+</tr>
+<tr>
+<td>logs</td>
+<td>shipment process logs</td>
+</tr>
+</tbody></table>
+<h1 id='shipment-cancelling'>Shipment Cancelling</h1><h2 id='http-request-3'>HTTP Request</h2>
 <p><code>DELETE http://API_SERVER/tms/delivery/distribution</code></p>
 
 <aside class="notice">
 You must replace <code>API_SERVER</code> with our production or sandbox server that mentioned above.
 </aside>
-<h2 id='request-2'>Request</h2>
+<h2 id='request-3'>Request</h2>
+<blockquote>
+<p>Exampe Body Request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"ref_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID_SO20230726000386"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
 <table><thead>
 <tr>
 <th>Fields</th>
@@ -774,13 +770,10 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 <td>ref_code</td>
 <td>Y</td>
 <td>String</td>
-<td>Your refference code, can be your order number or any refference code in your application</td>
+<td>Your refference code that you input before</td>
 </tr>
 </tbody></table>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"ref_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID_SO20230726000386"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><h2 id='response-3'>Response</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<h2 id='response-3'>Response</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h1 id='http-response-code'>HTTP Response Code</h1>
@@ -833,7 +826,7 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="http">http</a>
+                <a href="#" data-language-name="json">json</a>
           </div>
       </div>
     </div>
