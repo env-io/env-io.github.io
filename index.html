@@ -428,7 +428,6 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
     </span><span class="nl">"village"</span><span class="p">:</span><span class="w"> </span><span class="s2">"belimbing"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nl">"recipient"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SAPTA APRIYANA"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"contact_person"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SAPTA APRIYANA"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6285156701828"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JL.PENGADEGAN UTARA NO.1, KEL.CIKOKO, KEC.PANCORAN,KOTA JAKARTA SELATAN, DKI JAKARTA"</span><span class="p">,</span><span class="w">
@@ -480,6 +479,12 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 <td>Contact person for pickup in your warehouse</td>
 </tr>
 <tr>
+<td><div align="right">phone_number</div></td>
+<td>Y</td>
+<td>String</td>
+<td>phone number of contact person</td>
+</tr>
+<tr>
 <td><div align="right">address</div></td>
 <td>Y</td>
 <td>String</td>
@@ -489,25 +494,25 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 <td><div align="right">province</div></td>
 <td>N</td>
 <td>String</td>
-<td>Name pickup address province</td>
+<td>Name of pickup address province</td>
 </tr>
 <tr>
 <td><div align="right">regency</div></td>
 <td>N</td>
 <td>String</td>
-<td>Name pickup address regency</td>
+<td>Name of pickup address regency</td>
 </tr>
 <tr>
 <td><div align="right">district</div></td>
 <td>N</td>
 <td>String</td>
-<td>Name pickup address district</td>
+<td>Name of pickup address district</td>
 </tr>
 <tr>
 <td><div align="right">village</div></td>
 <td>N</td>
 <td>String</td>
-<td>Name pickup address village</td>
+<td>Name of pickup address village</td>
 </tr>
 <tr>
 <td>recipient</td>
@@ -520,6 +525,12 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 <td>Y</td>
 <td>String</td>
 <td>Recipient full name</td>
+</tr>
+<tr>
+<td><div align="right">phone_number</div></td>
+<td>Y</td>
+<td>String</td>
+<td>phone number of recipient</td>
 </tr>
 <tr>
 <td><div align="right">address</div></td>
@@ -639,24 +650,48 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"53ab0a61-508d-4094-aa61-b4dbce0bd2d2"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S4563844412"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"ref_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID_SO20230726000386"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"eta_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-27T08:40:00Z"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ata_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"etd_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"atd_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"received_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"eta_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-06-09T23:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ata_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-06-09T13:46:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"etd_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-06-08T23:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"atd_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-06-08T19:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"received_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Robert"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"delivered"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"cod_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">23000</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cod_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"cod_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"collected"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"logs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Envio Admin membuat order pengiriman"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"recorded_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-28T03:28:00Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pengiriman telah selesai, diterima oleh (Robert)"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"recorded_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-06-09T01:46:00Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-6.2999841</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">107.1501828</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pengiriman dalam perjalanan menuju lokasi anda"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"recorded_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-06-09T01:46:00Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-6.2996329</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">107.1503314</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pengiriman telah dijadwalkan untuk menuju lokasi penerima"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"recorded_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-06-08T16:43:00Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-6.2996329</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">107.1503314</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pengiriman anda berhasil dipickup, barang diterima di (BKI 01 - Chekpoint Bekasi)"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"recorded_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-06-08T16:40:00Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-6.2996329</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">107.1503314</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paket telah dijadwalkan untuk dipickup"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"recorded_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-06-08T16:37:00Z"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
         </span><span class="nl">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pengiriman anda terbuat"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"recorded_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Satrio membuat order pengiriman"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"recorded_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-06-08T16:24:00Z"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
         </span><span class="nl">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -736,11 +771,11 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 </tr>
 <tr>
 <td>cod_status</td>
-<td>- &#39;&#39; (not collected by envio)</td>
+<td>- &#39;&#39; (no cod or not collected by envio)</td>
 </tr>
 <tr>
 <td></td>
-<td>- paided (collected by envio)</td>
+<td>- collected (collected by envio)</td>
 </tr>
 <tr>
 <td>logs</td>
