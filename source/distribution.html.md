@@ -252,12 +252,14 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 
 ```json
 {
+  "code": "S4563844412",
   "ref_code": "ID_SO20230726000386"
 }
 ```
 
 | Fields   | Required (Y/N) | Type   | Description                                |
 | -------- | -------------- | ------ | ------------------------------------------ |
+| code     | Y              | String | Envio shipment code (Resi Number)          |
 | ref_code | Y              | String | Your refference code that you input before |
 
 ## Response
