@@ -695,6 +695,20 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
         </span><span class="nl">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
         </span><span class="nl">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
       </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3-ap-southeast-1.amazonaws.com/envio.co.id/production-files/10db3egidg54a1h_thumb.png?v=103202210442033200113011301"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3-ap-southeast-1.amazonaws.com/envio.co.id/production-files/10db930hcfbh8bh_thumb.png?v=103202240222200332431043011"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3-ap-southeast-1.amazonaws.com/envio.co.id/production-files/10db3ei89caf872_thumb.png?v=103202210443144122332013403"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3-ap-southeast-1.amazonaws.com/envio.co.id/production-files/10db5g20fc3c1g8_thumb.png?v=103202221224122030014211423"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -723,7 +737,7 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 </tr>
 <tr>
 <td>ata_at</td>
-<td>actual time arrival -- actual delivered time, will appear when delivered - Date time format (ISO 8601)</td>
+<td>actual time arrival -- actual delivered time, Date time format (ISO 8601)</td>
 </tr>
 <tr>
 <td>etd_at</td>
@@ -731,7 +745,7 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 </tr>
 <tr>
 <td>atd_at</td>
-<td>actual time departure -- actual pickup time, will appear when pick-up already done - Date time format (ISO 8601)</td>
+<td>actual time departure -- actual pickup time, Date time format (ISO 8601)</td>
 </tr>
 <tr>
 <td>received_by</td>
@@ -780,6 +794,10 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 <tr>
 <td>logs</td>
 <td>shipment process logs</td>
+</tr>
+<tr>
+<td>images</td>
+<td>proof of delivery</td>
 </tr>
 </tbody></table>
 <h1 id='shipment-cancelling'>Shipment Cancelling</h1><h2 id='http-request-3'>HTTP Request</h2>
