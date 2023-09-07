@@ -209,6 +209,20 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
         "latitude": 0,
         "longitude": 0
       }
+    ],
+    "images": [
+      {
+        "image": "https://s3-ap-southeast-1.amazonaws.com/envio.co.id/production-files/10db3egidg54a1h_thumb.png?v=103202210442033200113011301"
+      },
+      {
+        "image": "https://s3-ap-southeast-1.amazonaws.com/envio.co.id/production-files/10db930hcfbh8bh_thumb.png?v=103202240222200332431043011"
+      },
+      {
+        "image": "https://s3-ap-southeast-1.amazonaws.com/envio.co.id/production-files/10db3ei89caf872_thumb.png?v=103202210443144122332013403"
+      },
+      {
+        "image": "https://s3-ap-southeast-1.amazonaws.com/envio.co.id/production-files/10db5g20fc3c1g8_thumb.png?v=103202221224122030014211423"
+      }
     ]
   }
 }
