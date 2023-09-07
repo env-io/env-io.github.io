@@ -249,6 +249,7 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 | cod_status  | - '' (no cod or not collected by envio)                                                   |
 |             | - collected (collected by envio)                                                          |
 | logs        | shipment process logs                                                                     |
+| images      | proof of delivery                                                                         |
 
 # Shipment Cancelling
 
