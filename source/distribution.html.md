@@ -71,7 +71,9 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
     "province": "Banten",
     "regency": "kabupaten tangerang",
     "district": "kosambi",
-    "village": "belimbing"
+    "village": "belimbing",
+    "latitude": 38.8951,
+    "longitude": -77.0364
   },
   "recipient": {
     "contact_person": "SAPTA APRIYANA",
@@ -80,7 +82,9 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
     "province": "DKI Jakarta",
     "regency": "Jakarta Selatan",
     "district": "Pancoran",
-    "village": "cikoko"
+    "village": "cikoko",
+    "latitude": 38.8951,
+    "longitude": -77.0364
   },
   "eta_at": "2023-07-27T15:40:20+07:00",
   "etd_at": "2023-07-27T15:40:20+07:00"
@@ -100,6 +104,8 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 | <div align="right">regency</div>        | N              | String                      | Name of pickup address regency                                                                                             |
 | <div align="right">district</div>       | N              | String                      | Name of pickup address district                                                                                            |
 | <div align="right">village</div>        | N              | String                      | Name of pickup address village                                                                                             |
+| <div align="right">latitude</div>       | N              | Float                       | Latitude coordinate                                                                                                        |
+| <div align="right">longitude</div>      | N              | Float                       | Longitude coordinate                                                                                                       |
 | recipient                               | Y              | Object                      | -                                                                                                                          |
 | <div align="right">contact_person</div> | Y              | String                      | Recipient full name                                                                                                        |
 | <div align="right">phone_number</div>   | Y              | String                      | Phone number of recipient                                                                                                  |
@@ -108,6 +114,8 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 | <div align="right">regency</div>        | N              | String                      | Name of recipient regency                                                                                                  |
 | <div align="right">district</div>       | N              | String                      | Name of recipient district                                                                                                 |
 | <div align="right">village</div>        | N              | String                      | Name of recipient village                                                                                                  |
+| <div align="right">latitude</div>       | N              | Float                       | Latitude coordinate                                                                                                        |
+| <div align="right">longitude</div>      | N              | Float                       | Longitude coordinate                                                                                                       |
 | eta_at                                  | Y              | Date time format (ISO 8601) | Estimated time arrival, if any your shipment has window receiving time, using format: 2023-07-28T07:20:24+07:00 (ISO 8601) |
 | etd_at                                  | Y              | Date time format (ISO 8601) | Estimated time departure, scheduled pick-up time, using format: 2023-07-28T07:20:24+07:00 (ISO 8601)                       |
 |                                         |
@@ -209,47 +217,32 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
         "latitude": 0,
         "longitude": 0
       }
-    ],
-    "images": [
-      {
-        "image": "https://s3-ap-southeast-1.amazonaws.com/envio.co.id/production-files/10db3egidg54a1h_thumb.png?v=103202210442033200113011301"
-      },
-      {
-        "image": "https://s3-ap-southeast-1.amazonaws.com/envio.co.id/production-files/10db930hcfbh8bh_thumb.png?v=103202240222200332431043011"
-      },
-      {
-        "image": "https://s3-ap-southeast-1.amazonaws.com/envio.co.id/production-files/10db3ei89caf872_thumb.png?v=103202210443144122332013403"
-      },
-      {
-        "image": "https://s3-ap-southeast-1.amazonaws.com/envio.co.id/production-files/10db5g20fc3c1g8_thumb.png?v=103202221224122030014211423"
-      }
     ]
   }
 }
 ```
 
-| Parameter   | Description                                                                               |
-| ----------- | ----------------------------------------------------------------------------------------- |
-| id          | Envio shipment ids                                                                        |
-| code        | Envio unique shipment code                                                                |
-| ref_code    | Your refference code, can be your order number or any refference code in your application |
-| eta_at      | estimated time arrival -- estimated time for delivery, Date time format (ISO 8601)        |
-| ata_at      | actual time arrival -- actual delivered time, Date time format (ISO 8601)                 |
-| etd_at      | estimated time departure -- estimated time for pickup, Date time format (ISO 8601)        |
-| atd_at      | actual time departure -- actual pickup time, Date time format (ISO 8601)                  |
-| received_by | name of who received the packages                                                         |
-| status      | - new (shipment was created)                                                              |
-|             | - on_pickup (packages is in pickup process)                                               |
-|             | - on_delivery (packages is on the way to the recipient's location)                        |
-|             | - on_transit (packages is on the way to envio hubs)                                       |
-|             | - Console (packages is in envio hubs)                                                     |
-|             | - delivered (packages delivered)                                                          |
-|             | - disputed (failed to reach recipient, will back to envio hubs)                           |
-| cod_value   | the amount that envio should collecting in delivery                                       |
-| cod_status  | - '' (no cod or not collected by envio)                                                   |
-|             | - collected (collected by envio)                                                          |
-| logs        | shipment process logs                                                                     |
-| images      | proof of delivery                                                                         |
+| Parameter   | Description                                                                                                      |
+| ----------- | ---------------------------------------------------------------------------------------------------------------- |
+| id          | Envio shipment ids                                                                                               |
+| code        | Envio unique shipment code                                                                                       |
+| ref_code    | Your refference code, can be your order number or any refference code in your application                        |
+| eta_at      | estimated time arrival -- estimated time for delivery, Date time format (ISO 8601)                               |
+| ata_at      | actual time arrival -- actual delivered time, will appear when delivered - Date time format (ISO 8601)           |
+| etd_at      | estimated time departure -- estimated time for pickup, Date time format (ISO 8601)                               |
+| atd_at      | actual time departure -- actual pickup time, will appear when pick-up already done - Date time format (ISO 8601) |
+| received_by | name of who received the packages                                                                                |
+| status      | - new (shipment was created)                                                                                     |
+|             | - on_pickup (packages is in pickup process)                                                                      |
+|             | - on_delivery (packages is on the way to the recipient's location)                                               |
+|             | - on_transit (packages is on the way to envio hubs)                                                              |
+|             | - Console (packages is in envio hubs)                                                                            |
+|             | - delivered (packages delivered)                                                                                 |
+|             | - disputed (failed to reach recipient, will back to envio hubs)                                                  |
+| cod_value   | the amount that envio should collecting in delivery                                                              |
+| cod_status  | - '' (no cod or not collected by envio)                                                                          |
+|             | - collected (collected by envio)                                                                                 |
+| logs        | shipment process logs                                                                                            |
 
 # Shipment Cancelling
 
@@ -284,5 +277,119 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 ```json
 {
   "message": "success"
+}
+```
+
+# Callback Shipment (Webhook)
+
+A callback is an webhook that notify your own system at various stages of shipment (e.g. at the start or end of an shipment, before or after a pick-up, etc). We will send an POST Http Request with JSON body.
+
+You can set your webhook URL in client area.
+
+## Manifested
+
+Event when shipment is scheduled
+
+```json
+{
+  "code": "M0000000001",
+  "shipment": {
+    "code": "S4563844412",
+    "ref_code": "ID_SO20230726000386"
+  },
+  "moda": {
+    "driver": "DRIVER NAME",
+    "phone": "081111111",
+    "vehicle_number": "B0000XX",
+    "vehicle_type": "Blindvan"
+  },
+  "status": "manifested",
+  "eta_at": "2023-06-09T23:00:00Z"
+}
+```
+
+## Pick-up Succeed
+
+Event when shipment is picked-up
+
+```json
+{
+  "code": "M0000000001",
+  "shipment": {
+    "code": "S4563844412",
+    "ref_code": "ID_SO20230726000386"
+  },
+  "status": "picked-up",
+  "ata_at": "2023-06-09T23:00:00Z"
+}
+```
+
+## Pick-up Failed
+
+Event when shipment is failed to pick-up
+
+```json
+{
+  "code": "M0000000001",
+  "shipment": {
+    "code": "S4563844412",
+    "ref_code": "ID_SO20230726000386"
+  },
+  "status": "failed pickup reason here",
+  "ata_at": "2023-06-09T23:00:00Z",
+  "message": "Barang belum ready di pickup"
+}
+```
+
+## Delivered
+
+Event when shipment is delivered
+
+```json
+{
+  "code": "M0000000001",
+  "shipment": {
+    "code": "S4563844412",
+    "ref_code": "ID_SO20230726000386"
+  },
+  "status": "delivered",
+  "received_by": "Robert",
+  "cod_value": 23000,
+  "cod_status": "collected",
+  "ata_at": "2023-06-09T23:00:00Z"
+}
+```
+
+## Delivery Failed
+
+Event when shipment is failed to be delivered with any reasons
+
+```json
+{
+  "code": "M0000000001",
+  "shipment": {
+    "code": "S4563844412",
+    "ref_code": "ID_SO20230726000386"
+  },
+  "status": "delivery failed",
+  "ata_at": "2023-06-09T23:00:00Z",
+  "message": "failed delivery reason here"
+}
+```
+
+## Returned
+
+Event when shipment goods was returned
+
+```json
+{
+  "code": "M0000000001",
+  "shipment": {
+    "code": "S4563844412",
+    "ref_code": "ID_SO20230726000386"
+  },
+  "status": "returned",
+  "received_by": "Robert",
+  "ata_at": "2023-06-09T23:00:00Z"
 }
 ```
