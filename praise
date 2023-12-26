@@ -1,0 +1,208 @@
+<h1 id='overview'>Overview</h1>
+<p>This API is used for Envio Logistics client that use our distribution service
+to create, cancel and track the shipment.</p>
+
+<p>API server address:</p>
+
+<table><thead>
+<tr>
+<th>Type</th>
+<th>Address</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Sandbox</td>
+<td>https://api.gescargo.co.id/sandbox</td>
+</tr>
+<tr>
+<td>Production</td>
+<td>https://api.gescargo.co.id/v1</td>
+</tr>
+</tbody></table>
+<h1 id='authentication'>Authentication</h1>
+<p>Envio uses API Keys to allow access to the API. You can get your API KEY in our client portal or request to envio sales person.</p>
+
+<p>Envio expects for the API Key to be included in all API request to the server
+in a header that looks like the following:</p>
+
+<p><code>Authorization: Bearer API_KEY</code></p>
+
+<p>or in url query parameters</p>
+
+<p><code>https://api.gescargo.co.id/sandbox?token=API_KEY</code></p>
+
+<aside class="notice">
+You must replace <code>API_KEY</code> with your personal API key.
+</aside>
+<h1 id='stock'>Stock</h1><h2 id='http-request'>HTTP Request</h2>
+<p><code>POST http://API_SERVER/stock</code></p>
+
+<aside class="notice">
+You must replace <code>API_SERVER</code> with our production or sandbox server that mentioned above.
+</aside>
+<h2 id='request'>Request</h2>
+<blockquote>
+<p>Example Body Request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"warehouse_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID_SO20230726000340"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"item_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beras 5Kg"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"tonage"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Fields</th>
+<th>Required (Y/N)</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>warehouse_code</td>
+<td>Y</td>
+<td>String</td>
+<td>Refference code for warehouse</td>
+</tr>
+<tr>
+<td>item_name</td>
+<td>Y</td>
+<td>String</td>
+<td>Item name</td>
+</tr>
+<tr>
+<td>tonage</td>
+<td>Y</td>
+<td>Float</td>
+<td>Tonage of the item, in gramm</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>Y</td>
+<td>Integer</td>
+<td>Number of quantity</td>
+</tr>
+</tbody></table>
+<h2 id='response'>Response</h2>
+<blockquote>
+<p>Example Body Response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"522fe017-4207-481e-b290-ffc2bb5d801c"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h1 id='rencana-salur'>Rencana Salur</h1><h2 id='call-back-request'>Call Back Request</h2>
+<blockquote>
+<p>Example Body Request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"warehouse_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID_SO20230726000340"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"doc_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DO8734072200"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"dispatched_plan_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-12-27T00:00:00Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"total_pbp"</span><span class="p">:</span><span class="w"> </span><span class="mi">307</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"total_quantum"</span><span class="p">:</span><span class="w"> </span><span class="mi">3070</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"area"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b64b3436-35bf-434e-a461-99318c654409"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"village_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ef2fd678-2e7b-498d-ad00-8b2f72e4adf0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"village"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ef2fd678-2e7b-498d-ad00-8b2f72e4adf0"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KALILUNJAR"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"district"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4b8e9ce6-d484-11ed-afa1-0242ac120002"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BANJARMANGU"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"regency"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d304f69e-d483-11ed-afa1-0242ac120002"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KAB. BANJARNEGARA"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"sorting_dusun"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"kanwil"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5b827df8-d483-11ed-afa1-0242ac120002"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DI YOGYAKARTA / JATENG"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='response-2'>Response</h2>
+<blockquote>
+<p>Example Body Response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"doc_out_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"522fe017-4207-481e-b290-ffc2bb5d801c"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h1 id='proof-of-delivered'>Proof Of Delivered</h1><h2 id='call-back-request-2'>Call Back Request</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"bapang_periode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"202401"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"doc_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DO8734072200"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"bast_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DO8734072200"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"delivered_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-12-27T08:00:00Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"nama_pbp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUMINAH"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"delivered"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"area"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b64b3436-35bf-434e-a461-99318c654409"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"village_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ef2fd678-2e7b-498d-ad00-8b2f72e4adf0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"village"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ef2fd678-2e7b-498d-ad00-8b2f72e4adf0"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KALILUNJAR"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"district"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4b8e9ce6-d484-11ed-afa1-0242ac120002"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BANJARMANGU"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"regency"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d304f69e-d483-11ed-afa1-0242ac120002"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KAB. BANJARNEGARA"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"sorting_dusun"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"kanwil"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5b827df8-d483-11ed-afa1-0242ac120002"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DI YOGYAKARTA / JATENG"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"pod_image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://pod.gescargo.co.id/12388103921283123.jpg"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='pergantian-pbp'>Pergantian PBP</h2><h2 id='call-back-request-3'>Call Back Request</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"bapang_periode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"202401"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"doc_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DO8734072200"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"bast_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DO87340722001234"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"delivered_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-12-27T08:00:00Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"nama_pbp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUMINAH"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"changed"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pindah rumah"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"area"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b64b3436-35bf-434e-a461-99318c654409"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"village_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ef2fd678-2e7b-498d-ad00-8b2f72e4adf0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"village"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ef2fd678-2e7b-498d-ad00-8b2f72e4adf0"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KALILUNJAR"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"district"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4b8e9ce6-d484-11ed-afa1-0242ac120002"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BANJARMANGU"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"regency"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d304f69e-d483-11ed-afa1-0242ac120002"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KAB. BANJARNEGARA"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"sorting_dusun"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"kanwil"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5b827df8-d483-11ed-afa1-0242ac120002"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DI YOGYAKARTA / JATENG"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"pod_image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://pod.gescargo.co.id/12388103921283123.jpg"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
