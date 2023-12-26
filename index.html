@@ -319,7 +319,7 @@
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
           </li>
           <li>
-            <a href="#shipment-creating" class="toc-h1 toc-link" data-title="Shipment Creating">Shipment Creating</a>
+            <a href="#stock" class="toc-h1 toc-link" data-title="Stock">Stock</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
@@ -333,13 +333,10 @@
               </ul>
           </li>
           <li>
-            <a href="#shipment-tracking" class="toc-h1 toc-link" data-title="Shipment Tracking">Shipment Tracking</a>
+            <a href="#rencana-salur" class="toc-h1 toc-link" data-title="Rencana Salur">Rencana Salur</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#http-request-2" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
-                  </li>
-                  <li>
-                    <a href="#request-2" class="toc-h2 toc-link" data-title="Request">Request</a>
+                    <a href="#call-back-request" class="toc-h2 toc-link" data-title="Call Back Request">Call Back Request</a>
                   </li>
                   <li>
                     <a href="#response-2" class="toc-h2 toc-link" data-title="Response">Response</a>
@@ -347,16 +344,16 @@
               </ul>
           </li>
           <li>
-            <a href="#shipment-cancelling" class="toc-h1 toc-link" data-title="Shipment Cancelling">Shipment Cancelling</a>
+            <a href="#proof-of-delivered" class="toc-h1 toc-link" data-title="Proof Of Delivered">Proof Of Delivered</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#http-request-3" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                    <a href="#call-back-request-2" class="toc-h2 toc-link" data-title="Call Back Request">Call Back Request</a>
                   </li>
                   <li>
-                    <a href="#request-3" class="toc-h2 toc-link" data-title="Request">Request</a>
+                    <a href="#pergantian-pbp" class="toc-h2 toc-link" data-title="Pergantian PBP">Pergantian PBP</a>
                   </li>
                   <li>
-                    <a href="#response-3" class="toc-h2 toc-link" data-title="Response">Response</a>
+                    <a href="#call-back-request-3" class="toc-h2 toc-link" data-title="Call Back Request">Call Back Request</a>
                   </li>
               </ul>
           </li>
@@ -382,11 +379,11 @@ to create, cancel and track the shipment.</p>
 </thead><tbody>
 <tr>
 <td>Sandbox</td>
-<td>https://api.envio.co.id/sandbox</td>
+<td>https://api.gescargo.co.id/sandbox</td>
 </tr>
 <tr>
 <td>Production</td>
-<td>https://api.envio.co.id/v1</td>
+<td>https://api.gescargo.co.id/v1</td>
 </tr>
 </tbody></table>
 <h1 id='authentication'>Authentication</h1>
@@ -399,13 +396,13 @@ in a header that looks like the following:</p>
 
 <p>or in url query parameters</p>
 
-<p><code>https://api.envio.co.id/sandbox?token=API_KEY</code></p>
+<p><code>https://api.gescargo.co.id/sandbox?token=API_KEY</code></p>
 
 <aside class="notice">
 You must replace <code>API_KEY</code> with your personal API key.
 </aside>
-<h1 id='shipment-creating'>Shipment Creating</h1><h2 id='http-request'>HTTP Request</h2>
-<p><code>POST http://API_SERVER/tms/delivery/distribution</code></p>
+<h1 id='stock'>Stock</h1><h2 id='http-request'>HTTP Request</h2>
+<p><code>POST http://API_SERVER/stock</code></p>
 
 <aside class="notice">
 You must replace <code>API_SERVER</code> with our production or sandbox server that mentioned above.
@@ -415,29 +412,10 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 <p>Example Body Request:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"ref_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID_SO20230726000340"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"cod_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">23000</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"pickup_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PERGUDANGAN KOSAMBI PERMAI"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"contact_person"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PERGUDANGAN KOSAMBI PERMAI"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"628767438745"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JL. RAYA PERANCIS NO.17, BELIMBING, KEC. KOSAMBI, KABUPATEN TANGERANG, BANTEN 15212"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"province"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Banten"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"regency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kabupaten tangerang"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"district"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kosambi"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"village"</span><span class="p">:</span><span class="w"> </span><span class="s2">"belimbing"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"recipient"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"contact_person"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SAPTA APRIYANA"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6285156701828"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JL.PENGADEGAN UTARA NO.1, KEL.CIKOKO, KEC.PANCORAN,KOTA JAKARTA SELATAN, DKI JAKARTA"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"province"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DKI Jakarta"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"regency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jakarta Selatan"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"district"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pancoran"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"village"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cikoko"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"eta_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-27T15:40:20+07:00"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"etd_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-27T15:40:20+07:00"</span><span class="w">
+  </span><span class="nl">"warehouse_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID_SO20230726000340"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"item_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beras 5Kg"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"tonage"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <table><thead>
@@ -449,136 +427,28 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 </tr>
 </thead><tbody>
 <tr>
-<td>ref_code</td>
+<td>warehouse_code</td>
 <td>Y</td>
 <td>String</td>
-<td>Your refference code, can be your order number or any refference code in your application</td>
+<td>Refference code for warehouse</td>
 </tr>
 <tr>
-<td>cod_value</td>
-<td>N</td>
-<td>Decimal</td>
-<td>If your shipment need us to collect the money on delivery, fill 0 if you dont need it</td>
-</tr>
-<tr>
-<td>pickup_address</td>
-<td>Y</td>
-<td>Object</td>
-<td>-</td>
-</tr>
-<tr>
-<td><div align="right">name</div></td>
+<td>item_name</td>
 <td>Y</td>
 <td>String</td>
-<td>custom name for this address, ex: &quot;DC Jakarta&quot;</td>
+<td>Item name</td>
 </tr>
 <tr>
-<td><div align="right">contact_person</div></td>
+<td>tonage</td>
 <td>Y</td>
-<td>String</td>
-<td>Contact person for pickup in your warehouse</td>
+<td>Float</td>
+<td>Tonage of the item, in gramm</td>
 </tr>
 <tr>
-<td><div align="right">phone_number</div></td>
+<td>quantity</td>
 <td>Y</td>
-<td>String</td>
-<td>Phone number of contact person</td>
-</tr>
-<tr>
-<td><div align="right">address</div></td>
-<td>Y</td>
-<td>String</td>
-<td>Detailed address for pick-up</td>
-</tr>
-<tr>
-<td><div align="right">province</div></td>
-<td>N</td>
-<td>String</td>
-<td>Name of pickup address province</td>
-</tr>
-<tr>
-<td><div align="right">regency</div></td>
-<td>N</td>
-<td>String</td>
-<td>Name of pickup address regency</td>
-</tr>
-<tr>
-<td><div align="right">district</div></td>
-<td>N</td>
-<td>String</td>
-<td>Name of pickup address district</td>
-</tr>
-<tr>
-<td><div align="right">village</div></td>
-<td>N</td>
-<td>String</td>
-<td>Name of pickup address village</td>
-</tr>
-<tr>
-<td>recipient</td>
-<td>Y</td>
-<td>Object</td>
-<td>-</td>
-</tr>
-<tr>
-<td><div align="right">contact_person</div></td>
-<td>Y</td>
-<td>String</td>
-<td>Recipient full name</td>
-</tr>
-<tr>
-<td><div align="right">phone_number</div></td>
-<td>Y</td>
-<td>String</td>
-<td>Phone number of recipient</td>
-</tr>
-<tr>
-<td><div align="right">address</div></td>
-<td>Y</td>
-<td>String</td>
-<td>Detailed address recipient</td>
-</tr>
-<tr>
-<td><div align="right">province</div></td>
-<td>N</td>
-<td>String</td>
-<td>Name of recipient province</td>
-</tr>
-<tr>
-<td><div align="right">regency</div></td>
-<td>N</td>
-<td>String</td>
-<td>Name of recipient regency</td>
-</tr>
-<tr>
-<td><div align="right">district</div></td>
-<td>N</td>
-<td>String</td>
-<td>Name of recipient district</td>
-</tr>
-<tr>
-<td><div align="right">village</div></td>
-<td>N</td>
-<td>String</td>
-<td>Name of recipient village</td>
-</tr>
-<tr>
-<td>eta_at</td>
-<td>Y</td>
-<td>Date time format (ISO 8601)</td>
-<td>Estimated time arrival, if any your shipment has window receiving time, using format: 2023-07-28T07:20:24+07:00 (ISO 8601)</td>
-</tr>
-<tr>
-<td>etd_at</td>
-<td>Y</td>
-<td>Date time format (ISO 8601)</td>
-<td>Estimated time departure, scheduled pick-up time, using format: 2023-07-28T07:20:24+07:00 (ISO 8601)</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>Integer</td>
+<td>Number of quantity</td>
 </tr>
 </tbody></table>
 <h2 id='response'>Response</h2>
@@ -588,253 +458,119 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"522fe017-4207-481e-b290-ffc2bb5d801c"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S0503380732"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ref_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID_SO20230726000340"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"eprint_receipt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://sandbox.envio.co.id/print/resi/522fe017-4207-481e-b290-ffc2bb5d801c"</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"522fe017-4207-481e-b290-ffc2bb5d801c"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>Envio shipment ids</td>
-</tr>
-<tr>
-<td>code</td>
-<td>Envio unique shipment code (resi number)</td>
-</tr>
-<tr>
-<td>ref_code</td>
-<td>Your refference code that you input before</td>
-</tr>
-<tr>
-<td>eprint_receipt</td>
-<td>link to print receipt</td>
-</tr>
-</tbody></table>
-<h1 id='shipment-tracking'>Shipment Tracking</h1><h2 id='http-request-2'>HTTP Request</h2>
-<p><code>GET http://API_SERVER/tracking/distribution</code></p>
-
-<aside class="notice">
-You must replace <code>API_SERVER</code> with our production or sandbox server that mentioned above.
-</aside>
-<h2 id='request-2'>Request</h2>
-<table><thead>
-<tr>
-<th>Query Parameter</th>
-<th>Required(Y/N)</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>code</td>
-<td>Y</td>
-<td>You can fill with your refference code or envio shipment code</td>
-</tr>
-</tbody></table>
-
-<p><code>GET http://API_SERVER/tracking/distribution?code=ID_SO20230726000340</code></p>
-<h2 id='response-2'>Response</h2>
+</span></code></pre></div><h1 id='rencana-salur'>Rencana Salur</h1><h2 id='call-back-request'>Call Back Request</h2>
+<blockquote>
+<p>Example Body Request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"warehouse_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID_SO20230726000340"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"doc_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DO8734072200"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"dispatched_plan_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-12-27T00:00:00Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"total_pbp"</span><span class="p">:</span><span class="w"> </span><span class="mi">307</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"total_quantum"</span><span class="p">:</span><span class="w"> </span><span class="mi">3070</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"area"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b64b3436-35bf-434e-a461-99318c654409"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"village_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ef2fd678-2e7b-498d-ad00-8b2f72e4adf0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"village"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ef2fd678-2e7b-498d-ad00-8b2f72e4adf0"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KALILUNJAR"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"district"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4b8e9ce6-d484-11ed-afa1-0242ac120002"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BANJARMANGU"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"regency"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d304f69e-d483-11ed-afa1-0242ac120002"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KAB. BANJARNEGARA"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"sorting_dusun"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"kanwil"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5b827df8-d483-11ed-afa1-0242ac120002"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DI YOGYAKARTA / JATENG"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='response-2'>Response</h2>
 <blockquote>
 <p>Example Body Response:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"53ab0a61-508d-4094-aa61-b4dbce0bd2d2"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S4563844412"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ref_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID_SO20230726000386"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"eta_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-06-09T23:00:00Z"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ata_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-06-09T13:46:00Z"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"etd_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-06-08T23:00:00Z"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"atd_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-06-08T19:00:00Z"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"received_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Robert"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"delivered"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cod_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">23000</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cod_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"collected"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"logs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pengiriman telah selesai, diterima oleh (Robert)"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"recorded_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-06-09T01:46:00Z"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-6.2999841</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">107.1501828</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pengiriman dalam perjalanan menuju lokasi anda"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"recorded_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-06-09T01:46:00Z"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-6.2996329</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">107.1503314</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pengiriman telah dijadwalkan untuk menuju lokasi penerima"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"recorded_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-06-08T16:43:00Z"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-6.2996329</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">107.1503314</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pengiriman anda berhasil dipickup, barang diterima di (BKI 01 - Chekpoint Bekasi)"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"recorded_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-06-08T16:40:00Z"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-6.2996329</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">107.1503314</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paket telah dijadwalkan untuk dipickup"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"recorded_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-06-08T16:37:00Z"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Satrio membuat order pengiriman"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"recorded_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-06-08T16:24:00Z"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3-ap-southeast-1.amazonaws.com/envio.co.id/production-files/10db3egidg54a1h_thumb.png?v=103202210442033200113011301"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3-ap-southeast-1.amazonaws.com/envio.co.id/production-files/10db930hcfbh8bh_thumb.png?v=103202240222200332431043011"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3-ap-southeast-1.amazonaws.com/envio.co.id/production-files/10db3ei89caf872_thumb.png?v=103202210443144122332013403"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3-ap-southeast-1.amazonaws.com/envio.co.id/production-files/10db5g20fc3c1g8_thumb.png?v=103202221224122030014211423"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"doc_out_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"522fe017-4207-481e-b290-ffc2bb5d801c"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>Envio shipment ids</td>
-</tr>
-<tr>
-<td>code</td>
-<td>Envio unique shipment code</td>
-</tr>
-<tr>
-<td>ref_code</td>
-<td>Your refference code, can be your order number or any refference code in your application</td>
-</tr>
-<tr>
-<td>eta_at</td>
-<td>estimated time arrival -- estimated time for delivery, Date time format (ISO 8601)</td>
-</tr>
-<tr>
-<td>ata_at</td>
-<td>actual time arrival -- actual delivered time, Date time format (ISO 8601)</td>
-</tr>
-<tr>
-<td>etd_at</td>
-<td>estimated time departure -- estimated time for pickup, Date time format (ISO 8601)</td>
-</tr>
-<tr>
-<td>atd_at</td>
-<td>actual time departure -- actual pickup time, Date time format (ISO 8601)</td>
-</tr>
-<tr>
-<td>received_by</td>
-<td>name of who received the packages</td>
-</tr>
-<tr>
-<td>status</td>
-<td>- new (shipment was created)</td>
-</tr>
-<tr>
-<td></td>
-<td>- on_pickup (packages is in pickup process)</td>
-</tr>
-<tr>
-<td></td>
-<td>- on_delivery (packages is on the way to the recipient&#39;s location)</td>
-</tr>
-<tr>
-<td></td>
-<td>- on_transit (packages is on the way to envio hubs)</td>
-</tr>
-<tr>
-<td></td>
-<td>- Console (packages is in envio hubs)</td>
-</tr>
-<tr>
-<td></td>
-<td>- delivered (packages delivered)</td>
-</tr>
-<tr>
-<td></td>
-<td>- disputed (failed to reach recipient, will back to envio hubs)</td>
-</tr>
-<tr>
-<td>cod_value</td>
-<td>the amount that envio should collecting in delivery</td>
-</tr>
-<tr>
-<td>cod_status</td>
-<td>- &#39;&#39; (no cod or not collected by envio)</td>
-</tr>
-<tr>
-<td></td>
-<td>- collected (collected by envio)</td>
-</tr>
-<tr>
-<td>logs</td>
-<td>shipment process logs</td>
-</tr>
-<tr>
-<td>images</td>
-<td>proof of delivery</td>
-</tr>
-</tbody></table>
-<h1 id='shipment-cancelling'>Shipment Cancelling</h1><h2 id='http-request-3'>HTTP Request</h2>
-<p><code>DELETE http://API_SERVER/tms/delivery/distribution</code></p>
-
-<aside class="notice">
-You must replace <code>API_SERVER</code> with our production or sandbox server that mentioned above.
-</aside>
-<h2 id='request-3'>Request</h2>
-<blockquote>
-<p>Example Body Request:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"ref_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID_SO20230726000386"</span><span class="w">
+</span></code></pre></div><h1 id='proof-of-delivered'>Proof Of Delivered</h1><h2 id='call-back-request-2'>Call Back Request</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"bapang_periode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"202401"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"doc_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DO8734072200"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"bast_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DO8734072200"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"delivered_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-12-27T08:00:00Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"nama_pbp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUMINAH"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"delivered"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"area"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b64b3436-35bf-434e-a461-99318c654409"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"village_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ef2fd678-2e7b-498d-ad00-8b2f72e4adf0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"village"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ef2fd678-2e7b-498d-ad00-8b2f72e4adf0"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KALILUNJAR"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"district"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4b8e9ce6-d484-11ed-afa1-0242ac120002"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BANJARMANGU"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"regency"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d304f69e-d483-11ed-afa1-0242ac120002"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KAB. BANJARNEGARA"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"sorting_dusun"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"kanwil"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5b827df8-d483-11ed-afa1-0242ac120002"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DI YOGYAKARTA / JATENG"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"pod_image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://pod.gescargo.co.id/12388103921283123.jpg"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<table><thead>
-<tr>
-<th>Fields</th>
-<th>Required (Y/N)</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ref_code</td>
-<td>Y</td>
-<td>String</td>
-<td>Your refference code that you input before</td>
-</tr>
-</tbody></table>
-<h2 id='response-3'>Response</h2>
-<blockquote>
-<p>Example Body Response:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span></code></pre></div><h2 id='pergantian-pbp'>Pergantian PBP</h2><h2 id='call-back-request-3'>Call Back Request</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"bapang_periode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"202401"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"doc_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DO8734072200"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"bast_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DO87340722001234"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"delivered_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-12-27T08:00:00Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"nama_pbp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUMINAH"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"changed"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pindah rumah"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"area"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b64b3436-35bf-434e-a461-99318c654409"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"village_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ef2fd678-2e7b-498d-ad00-8b2f72e4adf0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"village"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ef2fd678-2e7b-498d-ad00-8b2f72e4adf0"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KALILUNJAR"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"district"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4b8e9ce6-d484-11ed-afa1-0242ac120002"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BANJARMANGU"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"regency"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d304f69e-d483-11ed-afa1-0242ac120002"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KAB. BANJARNEGARA"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"sorting_dusun"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"kanwil"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5b827df8-d483-11ed-afa1-0242ac120002"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DI YOGYAKARTA / JATENG"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"pod_image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://pod.gescargo.co.id/12388103921283123.jpg"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h1 id='http-response-code'>HTTP Response Code</h1>
 <p>The Envio API uses the following http response codes:</p>
