@@ -23,10 +23,10 @@ to create, cancel and track the shipment.
 
 API server address:
 
-| Type       | Address                         |
-| ---------- | ------------------------------- |
-| Sandbox    | https://api.envio.co.id/sandbox |
-| Production | https://api.envio.co.id/v1      |
+| Type       | Address                            |
+| ---------- | ---------------------------------- |
+| Sandbox    | https://api.gescargo.co.id/sandbox |
+| Production | https://api.gescargo.co.id/v1      |
 
 # Authentication
 
@@ -39,17 +39,17 @@ in a header that looks like the following:
 
 or in url query parameters
 
-`https://api.envio.co.id/sandbox?token=API_KEY`
+`https://api.gescargo.co.id/sandbox?token=API_KEY`
 
 <aside class="notice">
 You must replace <code>API_KEY</code> with your personal API key.
 </aside>
 
-# Shipment Creating
+# Stock
 
 ## HTTP Request
 
-`POST http://API_SERVER/tms/delivery/distribution`
+`POST http://API_SERVER/stock`
 
 <aside class="notice">
 You must replace <code>API_SERVER</code> with our production or sandbox server that mentioned above.
@@ -61,56 +61,19 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 
 ```json
 {
-  "ref_code": "ID_SO20230726000340",
-  "cod_value": 23000,
-  "pickup_address": {
-    "name": "PERGUDANGAN KOSAMBI PERMAI",
-    "contact_person": "PERGUDANGAN KOSAMBI PERMAI",
-    "phone_number": "628767438745",
-    "address": "JL. RAYA PERANCIS NO.17, BELIMBING, KEC. KOSAMBI, KABUPATEN TANGERANG, BANTEN 15212",
-    "province": "Banten",
-    "regency": "kabupaten tangerang",
-    "district": "kosambi",
-    "village": "belimbing"
-  },
-  "recipient": {
-    "contact_person": "SAPTA APRIYANA",
-    "phone_number": "6285156701828",
-    "address": "JL.PENGADEGAN UTARA NO.1, KEL.CIKOKO, KEC.PANCORAN,KOTA JAKARTA SELATAN, DKI JAKARTA",
-    "province": "DKI Jakarta",
-    "regency": "Jakarta Selatan",
-    "district": "Pancoran",
-    "village": "cikoko"
-  },
-  "eta_at": "2023-07-27T15:40:20+07:00",
-  "etd_at": "2023-07-27T15:40:20+07:00"
+  "warehouse_code": "ID_SO20230726000340",
+  "item_name": "Beras 5Kg",
+  "tonage": 5000,
+  "quantity": 1000
 }
 ```
 
-| Fields                                  | Required (Y/N) | Type                        | Description                                                                                                                |
-| --------------------------------------- | -------------- | --------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| ref_code                                | Y              | String                      | Your refference code, can be your order number or any refference code in your application                                  |
-| cod_value                               | N              | Decimal                     | If your shipment need us to collect the money on delivery, fill 0 if you dont need it                                      |
-| pickup_address                          | Y              | Object                      | -                                                                                                                          |
-| <div align="right">name</div>           | Y              | String                      | custom name for this address, ex: "DC Jakarta"                                                                             |
-| <div align="right">contact_person</div> | Y              | String                      | Contact person for pickup in your warehouse                                                                                |
-| <div align="right">phone_number</div>   | Y              | String                      | Phone number of contact person                                                                                             |
-| <div align="right">address</div>        | Y              | String                      | Detailed address for pick-up                                                                                               |
-| <div align="right">province</div>       | N              | String                      | Name of pickup address province                                                                                            |
-| <div align="right">regency</div>        | N              | String                      | Name of pickup address regency                                                                                             |
-| <div align="right">district</div>       | N              | String                      | Name of pickup address district                                                                                            |
-| <div align="right">village</div>        | N              | String                      | Name of pickup address village                                                                                             |
-| recipient                               | Y              | Object                      | -                                                                                                                          |
-| <div align="right">contact_person</div> | Y              | String                      | Recipient full name                                                                                                        |
-| <div align="right">phone_number</div>   | Y              | String                      | Phone number of recipient                                                                                                  |
-| <div align="right">address</div>        | Y              | String                      | Detailed address recipient                                                                                                 |
-| <div align="right">province</div>       | N              | String                      | Name of recipient province                                                                                                 |
-| <div align="right">regency</div>        | N              | String                      | Name of recipient regency                                                                                                  |
-| <div align="right">district</div>       | N              | String                      | Name of recipient district                                                                                                 |
-| <div align="right">village</div>        | N              | String                      | Name of recipient village                                                                                                  |
-| eta_at                                  | Y              | Date time format (ISO 8601) | Estimated time arrival, if any your shipment has window receiving time, using format: 2023-07-28T07:20:24+07:00 (ISO 8601) |
-| etd_at                                  | Y              | Date time format (ISO 8601) | Estimated time departure, scheduled pick-up time, using format: 2023-07-28T07:20:24+07:00 (ISO 8601)                       |
-|                                         |
+| Fields         | Required (Y/N) | Type    | Description                   |
+| -------------- | -------------- | ------- | ----------------------------- |
+| warehouse_code | Y              | String  | Refference code for warehouse |
+| item_name      | Y              | String  | Item name                     |
+| tonage         | Y              | Float   | Tonage of the item, in gramm  |
+| quantity       | Y              | Integer | Number of quantity            |
 
 ## Response
 
@@ -120,160 +83,49 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 {
   "message": "success",
   "data": {
-    "id": "522fe017-4207-481e-b290-ffc2bb5d801c",
-    "code": "S0503380732",
-    "ref_code": "ID_SO20230726000340",
-    "eprint_receipt": "https://sandbox.envio.co.id/print/resi/522fe017-4207-481e-b290-ffc2bb5d801c"
+    "id": "522fe017-4207-481e-b290-ffc2bb5d801c"
   }
 }
 ```
 
-| Parameter      | Description                                |
-| -------------- | ------------------------------------------ |
-| id             | Envio shipment ids                         |
-| code           | Envio unique shipment code (resi number)   |
-| ref_code       | Your refference code that you input before |
-| eprint_receipt | link to print receipt                      |
+# Rencana Salur
 
-# Shipment Tracking
-
-## HTTP Request
-
-`GET http://API_SERVER/tracking/distribution`
-
-<aside class="notice">
-You must replace <code>API_SERVER</code> with our production or sandbox server that mentioned above.
-</aside>
-
-## Request
-
-| Query Parameter | Required(Y/N) | Description                                                   |
-| --------------- | ------------- | ------------------------------------------------------------- |
-| code            | Y             | You can fill with your refference code or envio shipment code |
-
-`GET http://API_SERVER/tracking/distribution?code=ID_SO20230726000340`
-
-## Response
-
-> Example Body Response:
-
-```json
-{
-  "message": "success",
-  "data": {
-    "id": "53ab0a61-508d-4094-aa61-b4dbce0bd2d2",
-    "code": "S4563844412",
-    "ref_code": "ID_SO20230726000386",
-    "eta_at": "2023-06-09T23:00:00Z",
-    "ata_at": "2023-06-09T13:46:00Z",
-    "etd_at": "2023-06-08T23:00:00Z",
-    "atd_at": "2023-06-08T19:00:00Z",
-    "received_by": "Robert",
-    "status": "delivered",
-    "cod_value": 23000,
-    "cod_status": "collected",
-    "logs": [
-      {
-        "message": "Pengiriman telah selesai, diterima oleh (Robert)",
-        "recorded_at": "2023-06-09T01:46:00Z",
-        "latitude": -6.2999841,
-        "longitude": 107.1501828
-      },
-      {
-        "message": "Pengiriman dalam perjalanan menuju lokasi anda",
-        "recorded_at": "2023-06-09T01:46:00Z",
-        "latitude": -6.2996329,
-        "longitude": 107.1503314
-      },
-      {
-        "message": "Pengiriman telah dijadwalkan untuk menuju lokasi penerima",
-        "recorded_at": "2023-06-08T16:43:00Z",
-        "latitude": -6.2996329,
-        "longitude": 107.1503314
-      },
-      {
-        "message": "Pengiriman anda berhasil dipickup, barang diterima di (BKI 01 - Chekpoint Bekasi)",
-        "recorded_at": "2023-06-08T16:40:00Z",
-        "latitude": -6.2996329,
-        "longitude": 107.1503314
-      },
-      {
-        "message": "Paket telah dijadwalkan untuk dipickup",
-        "recorded_at": "2023-06-08T16:37:00Z",
-        "latitude": 0,
-        "longitude": 0
-      },
-      {
-        "message": "Satrio membuat order pengiriman",
-        "recorded_at": "2023-06-08T16:24:00Z",
-        "latitude": 0,
-        "longitude": 0
-      }
-    ],
-    "images": [
-      {
-        "image": "https://s3-ap-southeast-1.amazonaws.com/envio.co.id/production-files/10db3egidg54a1h_thumb.png?v=103202210442033200113011301"
-      },
-      {
-        "image": "https://s3-ap-southeast-1.amazonaws.com/envio.co.id/production-files/10db930hcfbh8bh_thumb.png?v=103202240222200332431043011"
-      },
-      {
-        "image": "https://s3-ap-southeast-1.amazonaws.com/envio.co.id/production-files/10db3ei89caf872_thumb.png?v=103202210443144122332013403"
-      },
-      {
-        "image": "https://s3-ap-southeast-1.amazonaws.com/envio.co.id/production-files/10db5g20fc3c1g8_thumb.png?v=103202221224122030014211423"
-      }
-    ]
-  }
-}
-```
-
-| Parameter   | Description                                                                               |
-| ----------- | ----------------------------------------------------------------------------------------- |
-| id          | Envio shipment ids                                                                        |
-| code        | Envio unique shipment code                                                                |
-| ref_code    | Your refference code, can be your order number or any refference code in your application |
-| eta_at      | estimated time arrival -- estimated time for delivery, Date time format (ISO 8601)        |
-| ata_at      | actual time arrival -- actual delivered time, Date time format (ISO 8601)                 |
-| etd_at      | estimated time departure -- estimated time for pickup, Date time format (ISO 8601)        |
-| atd_at      | actual time departure -- actual pickup time, Date time format (ISO 8601)                  |
-| received_by | name of who received the packages                                                         |
-| status      | - new (shipment was created)                                                              |
-|             | - on_pickup (packages is in pickup process)                                               |
-|             | - on_delivery (packages is on the way to the recipient's location)                        |
-|             | - on_transit (packages is on the way to envio hubs)                                       |
-|             | - Console (packages is in envio hubs)                                                     |
-|             | - delivered (packages delivered)                                                          |
-|             | - disputed (failed to reach recipient, will back to envio hubs)                           |
-| cod_value   | the amount that envio should collecting in delivery                                       |
-| cod_status  | - '' (no cod or not collected by envio)                                                   |
-|             | - collected (collected by envio)                                                          |
-| logs        | shipment process logs                                                                     |
-| images      | proof of delivery                                                                         |
-
-# Shipment Cancelling
-
-## HTTP Request
-
-`DELETE http://API_SERVER/tms/delivery/distribution`
-
-<aside class="notice">
-You must replace <code>API_SERVER</code> with our production or sandbox server that mentioned above.
-</aside>
-
-## Request
+## Call Back Request
 
 > Example Body Request:
 
 ```json
 {
-  "ref_code": "ID_SO20230726000386"
+  "warehouse_code": "ID_SO20230726000340",
+  "doc_code": "DO8734072200",
+  "dispatched_plan_at": "2023-12-27T00:00:00Z",
+  "total_pbp": 307,
+  "total_quantum": 3070,
+  "area": {
+    "id": "b64b3436-35bf-434e-a461-99318c654409",
+    "village_id": "ef2fd678-2e7b-498d-ad00-8b2f72e4adf0",
+    "village": {
+      "id": "ef2fd678-2e7b-498d-ad00-8b2f72e4adf0",
+      "name": "KALILUNJAR",
+      "latitude": 0,
+      "longitude": 0,
+      "district": {
+        "id": "4b8e9ce6-d484-11ed-afa1-0242ac120002",
+        "name": "BANJARMANGU",
+        "regency": {
+          "id": "d304f69e-d483-11ed-afa1-0242ac120002",
+          "name": "KAB. BANJARNEGARA",
+          "sorting_dusun": false,
+          "kanwil": {
+            "id": "5b827df8-d483-11ed-afa1-0242ac120002",
+            "name": "DI YOGYAKARTA / JATENG"
+          }
+        }
+      }
+    }
+  }
 }
 ```
-
-| Fields   | Required (Y/N) | Type   | Description                                |
-| -------- | -------------- | ------ | ------------------------------------------ |
-| ref_code | Y              | String | Your refference code that you input before |
 
 ## Response
 
@@ -281,6 +133,90 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 
 ```json
 {
-  "message": "success"
+  "message": "success",
+  "data": [
+    {
+      "doc_out_code": "522fe017-4207-481e-b290-ffc2bb5d801c"
+    }
+  ]
+}
+```
+
+# Proof Of Delivered
+
+## Call Back Request
+
+```json
+{
+  "bapang_periode": "202401",
+  "doc_code": "DO8734072200",
+  "bast_code": "DO8734072200",
+  "delivered_at": "2023-12-27T08:00:00Z",
+  "nama_pbp": "SUMINAH",
+  "status": "delivered",
+  "area": {
+    "id": "b64b3436-35bf-434e-a461-99318c654409",
+    "village_id": "ef2fd678-2e7b-498d-ad00-8b2f72e4adf0",
+    "village": {
+      "id": "ef2fd678-2e7b-498d-ad00-8b2f72e4adf0",
+      "name": "KALILUNJAR",
+      "latitude": 0,
+      "longitude": 0,
+      "district": {
+        "id": "4b8e9ce6-d484-11ed-afa1-0242ac120002",
+        "name": "BANJARMANGU",
+        "regency": {
+          "id": "d304f69e-d483-11ed-afa1-0242ac120002",
+          "name": "KAB. BANJARNEGARA",
+          "sorting_dusun": false,
+          "kanwil": {
+            "id": "5b827df8-d483-11ed-afa1-0242ac120002",
+            "name": "DI YOGYAKARTA / JATENG"
+          }
+        }
+      }
+    }
+  },
+  "pod_image": "https://pod.gescargo.co.id/12388103921283123.jpg"
+}
+```
+
+## Pergantian PBP
+
+## Call Back Request
+
+```json
+{
+  "bapang_periode": "202401",
+  "doc_code": "DO8734072200",
+  "bast_code": "DO87340722001234",
+  "delivered_at": "2023-12-27T08:00:00Z",
+  "nama_pbp": "SUMINAH",
+  "status": "changed",
+  "reason": "pindah rumah",
+  "area": {
+    "id": "b64b3436-35bf-434e-a461-99318c654409",
+    "village_id": "ef2fd678-2e7b-498d-ad00-8b2f72e4adf0",
+    "village": {
+      "id": "ef2fd678-2e7b-498d-ad00-8b2f72e4adf0",
+      "name": "KALILUNJAR",
+      "latitude": 0,
+      "longitude": 0,
+      "district": {
+        "id": "4b8e9ce6-d484-11ed-afa1-0242ac120002",
+        "name": "BANJARMANGU",
+        "regency": {
+          "id": "d304f69e-d483-11ed-afa1-0242ac120002",
+          "name": "KAB. BANJARNEGARA",
+          "sorting_dusun": false,
+          "kanwil": {
+            "id": "5b827df8-d483-11ed-afa1-0242ac120002",
+            "name": "DI YOGYAKARTA / JATENG"
+          }
+        }
+      }
+    }
+  },
+  "pod_image": "https://pod.gescargo.co.id/12388103921283123.jpg"
 }
 ```
