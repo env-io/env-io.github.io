@@ -86,6 +86,18 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
     "latitude": 38.8951,
     "longitude": -77.0364
   },
+  "items": [
+    {
+      "item_code": "2192x127y",
+      "item_name": "Air Mineral 300 ML",
+      "quantity": 1,
+      "weight": 10,
+      "long": 10,
+      "high": 20,
+      "wide": 30,
+      "unit_price": 12500
+    }
+  ],
   "eta_at": "2023-07-27T15:40:20+07:00",
   "etd_at": "2023-07-27T15:40:20+07:00"
 }
@@ -116,6 +128,15 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 | <div align="right">village</div>        | N              | String                      | Name of recipient village                                                                                                  |
 | <div align="right">latitude</div>       | N              | Float                       | Latitude coordinate                                                                                                        |
 | <div align="right">longitude</div>      | N              | Float                       | Longitude coordinate                                                                                                       |
+| items                                   | N              | Array Object                | -                                                                                                                          |
+| <div align="right">item_code</div>      | N              | String                      | can be used for unique items                                                                                               |
+| <div align="right">item_name</div>      | Y              | String                      | Name of items                                                                                                              |
+| <div align="right">quantity</div>       | Y              | Float                       | quantity of items                                                                                                          |
+| <div align="right">weight</div>         | N              | Float                       | weight of items                                                                                                            |
+| <div align="right">long</div>           | N              | Float                       | long of items                                                                                                              |
+| <div align="right">high</div>           | N              | Float                       | high of items                                                                                                              |
+| <div align="right">wide</div>           | N              | Float                       | wide of items                                                                                                              |
+| <div align="right">unit_price</div>     | N              | Float                       | unit price of items                                                                                                        |
 | eta_at                                  | Y              | Date time format (ISO 8601) | Estimated time arrival, if any your shipment has window receiving time, using format: 2023-07-28T07:20:24+07:00 (ISO 8601) |
 | etd_at                                  | Y              | Date time format (ISO 8601) | Estimated time departure, scheduled pick-up time, using format: 2023-07-28T07:20:24+07:00 (ISO 8601)                       |
 |                                         |
