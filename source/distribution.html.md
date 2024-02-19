@@ -49,7 +49,7 @@ You must replace <code>API_KEY</code> with your personal API key.
 
 ## HTTP Request
 
-`POST http://API_SERVER/tms/delivery/distribution`
+`POST http://API_SERVER/distribution`
 
 <aside class="notice">
 You must replace <code>API_SERVER</code> with our production or sandbox server that mentioned above.
@@ -248,7 +248,7 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 
 ## HTTP Request
 
-`DELETE http://API_SERVER/tms/delivery/distribution`
+`DELETE http://API_SERVER/distribution`
 
 <aside class="notice">
 You must replace <code>API_SERVER</code> with our production or sandbox server that mentioned above.
