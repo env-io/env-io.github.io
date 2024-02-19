@@ -463,6 +463,18 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
     </span><span class="nl">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">38.8951</span><span class="p">,</span><span class="w">
     </span><span class="nl">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-77.0364</span><span class="w">
   </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"item_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2192x127y"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"item_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Air Mineral 300 ML"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"long"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"high"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"wide"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">12500</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nl">"eta_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-27T15:40:20+07:00"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"etd_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-27T15:40:20+07:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -612,6 +624,60 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 <td>N</td>
 <td>Float</td>
 <td>Longitude coordinate</td>
+</tr>
+<tr>
+<td>items</td>
+<td>N</td>
+<td>Array Object</td>
+<td>-</td>
+</tr>
+<tr>
+<td><div align="right">item_code</div></td>
+<td>N</td>
+<td>String</td>
+<td>can be used for unique items</td>
+</tr>
+<tr>
+<td><div align="right">item_name</div></td>
+<td>Y</td>
+<td>String</td>
+<td>Name of items</td>
+</tr>
+<tr>
+<td><div align="right">quantity</div></td>
+<td>Y</td>
+<td>Float</td>
+<td>quantity of items</td>
+</tr>
+<tr>
+<td><div align="right">weight</div></td>
+<td>N</td>
+<td>Float</td>
+<td>weight of items</td>
+</tr>
+<tr>
+<td><div align="right">long</div></td>
+<td>N</td>
+<td>Float</td>
+<td>long of items</td>
+</tr>
+<tr>
+<td><div align="right">high</div></td>
+<td>N</td>
+<td>Float</td>
+<td>high of items</td>
+</tr>
+<tr>
+<td><div align="right">wide</div></td>
+<td>N</td>
+<td>Float</td>
+<td>wide of items</td>
+</tr>
+<tr>
+<td><div align="right">unit_price</div></td>
+<td>N</td>
+<td>Float</td>
+<td>unit price of items</td>
 </tr>
 <tr>
 <td>eta_at</td>
