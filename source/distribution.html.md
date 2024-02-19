@@ -35,7 +35,7 @@ Envio uses API Keys to allow access to the API. You can get your API KEY in our 
 Envio expects for the API Key to be included in all API request to the server
 in a header that looks like the following:
 
-`Authorization: Bearer API_KEY`
+`Authorization: API_KEY`
 
 or in url query parameters
 
