@@ -164,6 +164,125 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 | ref_code       | Your refference code that you input before |
 | eprint_receipt | link to print receipt                      |
 
+# Shipment Updating
+
+## HTTP Request
+
+`PUT http://API_SERVER/distribution`
+
+<aside class="notice">
+You must replace <code>API_SERVER</code> with our production or sandbox server that mentioned above.
+</aside>
+
+## Request
+
+> Example Body Request:
+
+```json
+{
+  "ref_code": "ID_SO20230726000340",
+  "cod_value": 23000,
+  "pickup_address": {
+    "name": "PERGUDANGAN KOSAMBI PERMAI",
+    "contact_person": "PERGUDANGAN KOSAMBI PERMAI",
+    "phone_number": "628767438745",
+    "address": "JL. RAYA PERANCIS NO.17, BELIMBING, KEC. KOSAMBI, KABUPATEN TANGERANG, BANTEN 15212",
+    "province": "Banten",
+    "regency": "kabupaten tangerang",
+    "district": "kosambi",
+    "village": "belimbing",
+    "latitude": 38.8951,
+    "longitude": -77.0364
+  },
+  "recipient": {
+    "contact_person": "SAPTA APRIYANA",
+    "phone_number": "6285156701828",
+    "address": "JL.PENGADEGAN UTARA NO.1, KEL.CIKOKO, KEC.PANCORAN,KOTA JAKARTA SELATAN, DKI JAKARTA",
+    "province": "DKI Jakarta",
+    "regency": "Jakarta Selatan",
+    "district": "Pancoran",
+    "village": "cikoko",
+    "latitude": 38.8951,
+    "longitude": -77.0364
+  },
+  "items": [
+    {
+      "item_code": "2192x127y",
+      "item_name": "Air Mineral 300 ML",
+      "quantity": 1,
+      "weight": 10,
+      "long": 10,
+      "high": 20,
+      "wide": 30,
+      "unit_price": 12500
+    }
+  ],
+  "eta_at": "2023-07-27T15:40:20+07:00",
+  "etd_at": "2023-07-27T15:40:20+07:00"
+}
+```
+
+| Fields                                  | Required (Y/N) | Type                        | Description                                                                                                                |
+| --------------------------------------- | -------------- | --------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| ref_code                                | Y              | String                      | Your refference code, can be your order number or any refference code in your application                                  |
+| cod_value                               | N              | Decimal                     | If your shipment need us to collect the money on delivery, fill 0 if you dont need it                                      |
+| pickup_address                          | Y              | Object                      | -                                                                                                                          |
+| <div align="right">name</div>           | Y              | String                      | custom name for this address, ex: "DC Jakarta"                                                                             |
+| <div align="right">contact_person</div> | Y              | String                      | Contact person for pickup in your warehouse                                                                                |
+| <div align="right">phone_number</div>   | Y              | String                      | Phone number of contact person                                                                                             |
+| <div align="right">address</div>        | Y              | String                      | Detailed address for pick-up                                                                                               |
+| <div align="right">province</div>       | N              | String                      | Name of pickup address province                                                                                            |
+| <div align="right">regency</div>        | N              | String                      | Name of pickup address regency                                                                                             |
+| <div align="right">district</div>       | N              | String                      | Name of pickup address district                                                                                            |
+| <div align="right">village</div>        | N              | String                      | Name of pickup address village                                                                                             |
+| <div align="right">latitude</div>       | N              | Float                       | Latitude coordinate                                                                                                        |
+| <div align="right">longitude</div>      | N              | Float                       | Longitude coordinate                                                                                                       |
+| recipient                               | Y              | Object                      | -                                                                                                                          |
+| <div align="right">contact_person</div> | Y              | String                      | Recipient full name                                                                                                        |
+| <div align="right">phone_number</div>   | Y              | String                      | Phone number of recipient                                                                                                  |
+| <div align="right">address</div>        | Y              | String                      | Detailed address recipient                                                                                                 |
+| <div align="right">province</div>       | N              | String                      | Name of recipient province                                                                                                 |
+| <div align="right">regency</div>        | N              | String                      | Name of recipient regency                                                                                                  |
+| <div align="right">district</div>       | N              | String                      | Name of recipient district                                                                                                 |
+| <div align="right">village</div>        | N              | String                      | Name of recipient village                                                                                                  |
+| <div align="right">latitude</div>       | N              | Float                       | Latitude coordinate                                                                                                        |
+| <div align="right">longitude</div>      | N              | Float                       | Longitude coordinate                                                                                                       |
+| items                                   | N              | Array Object                | -                                                                                                                          |
+| <div align="right">item_code</div>      | N              | String                      | can be used for unique items                                                                                               |
+| <div align="right">item_name</div>      | Y              | String                      | Name of items                                                                                                              |
+| <div align="right">quantity</div>       | Y              | Float                       | quantity of items                                                                                                          |
+| <div align="right">weight</div>         | N              | Float                       | weight of items                                                                                                            |
+| <div align="right">long</div>           | N              | Float                       | long of items                                                                                                              |
+| <div align="right">high</div>           | N              | Float                       | high of items                                                                                                              |
+| <div align="right">wide</div>           | N              | Float                       | wide of items                                                                                                              |
+| <div align="right">unit_price</div>     | N              | Float                       | unit price of items                                                                                                        |
+| eta_at                                  | Y              | Date time format (ISO 8601) | Estimated time arrival, if any your shipment has window receiving time, using format: 2023-07-28T07:20:24+07:00 (ISO 8601) |
+| etd_at                                  | Y              | Date time format (ISO 8601) | Estimated time departure, scheduled pick-up time, using format: 2023-07-28T07:20:24+07:00 (ISO 8601)                       |
+|                                         |
+
+## Response
+
+> Example Body Response:
+
+```json
+{
+  "message": "success",
+  "data": {
+    "id": "522fe017-4207-481e-b290-ffc2bb5d801c",
+    "code": "S0503380732",
+    "ref_code": "ID_SO20230726000340",
+    "eprint_receipt": "https://sandbox.envio.co.id/print/resi/522fe017-4207-481e-b290-ffc2bb5d801c"
+  }
+}
+```
+
+| Parameter      | Description                                |
+| -------------- | ------------------------------------------ |
+| id             | Envio shipment ids                         |
+| code           | Envio unique shipment code (resi number)   |
+| ref_code       | Your refference code that you input before |
+| eprint_receipt | link to print receipt                      |
+
 # Shipment Tracking
 
 ## HTTP Request
@@ -307,7 +426,56 @@ A callback is an webhook that notify your own system at various stages of shipme
 
 You can set your webhook URL in client area.
 
+## Update PerItem/SKU
+
+## HTTP Request
+
+`POST http://URLCLIENT/callback/item`
+
+Event when shipment is update item/sku
+
+```json
+{
+  "code": "S4563844412",
+  "ref_code": "ID_SO20230726000386",
+  "item": {
+    "item_code": "2192x127y",
+    "item_name": "Air Mineral 300 ML",
+    "quantity": 2,
+    "weight": 10,
+    "long": 10,
+    "high": 20,
+    "wide": 30
+  }
+}
+```
+
+## Assign Driver
+
+## HTTP Request
+
+`POST http://URLCLIENT/callback/dispatch`
+
+Event when shipment is assign driver
+
+```json
+{
+  "code": "M0000000001",
+  "shipment": {
+    "code": "S4563844412",
+    "ref_code": "ID_SO20230726000386"
+  },
+  "driver_name": "Usep",
+  "driver_phone": "6281897381723",
+  "vehicle_number": "B 8219 K"
+}
+```
+
 ## Manifested
+
+## HTTP Request
+
+`PATCH http://URLCLIENT/callback`
 
 Event when shipment is scheduled
 
@@ -318,18 +486,15 @@ Event when shipment is scheduled
     "code": "S4563844412",
     "ref_code": "ID_SO20230726000386"
   },
-  "moda": {
-    "driver": "DRIVER NAME",
-    "phone": "081111111",
-    "vehicle_number": "B0000XX",
-    "vehicle_type": "Blindvan"
-  },
-  "status": "manifested",
-  "eta_at": "2023-06-09T23:00:00Z"
+  "status": "manifested"
 }
 ```
 
 ## Pick-up Succeed
+
+## HTTP Request
+
+`PATCH http://URLCLIENT/callback`
 
 Event when shipment is picked-up
 
@@ -340,12 +505,16 @@ Event when shipment is picked-up
     "code": "S4563844412",
     "ref_code": "ID_SO20230726000386"
   },
-  "status": "picked-up",
+  "status": "picked_up",
   "ata_at": "2023-06-09T23:00:00Z"
 }
 ```
 
 ## Pick-up Failed
+
+## HTTP Request
+
+`PATCH http://URLCLIENT/callback`
 
 Event when shipment is failed to pick-up
 
@@ -356,13 +525,16 @@ Event when shipment is failed to pick-up
     "code": "S4563844412",
     "ref_code": "ID_SO20230726000386"
   },
-  "status": "failed pickup reason here",
-  "ata_at": "2023-06-09T23:00:00Z",
+  "status": "picked_up_failed",
   "message": "Barang belum ready di pickup"
 }
 ```
 
 ## Delivered
+
+## HTTP Request
+
+`PATCH http://URLCLIENT/callback`
 
 Event when shipment is delivered
 
@@ -377,11 +549,19 @@ Event when shipment is delivered
   "received_by": "Robert",
   "cod_value": 23000,
   "cod_status": "collected",
-  "ata_at": "2023-06-09T23:00:00Z"
+  "ata_at": "2023-06-09T23:00:00Z",
+  "images": [
+    "https://xxxx.png"
+    "https://yyyy.png"
+  ]
 }
 ```
 
 ## Delivery Failed
+
+## HTTP Request
+
+`PATCH http://URLCLIENT/callback`
 
 Event when shipment is failed to be delivered with any reasons
 
@@ -392,13 +572,60 @@ Event when shipment is failed to be delivered with any reasons
     "code": "S4563844412",
     "ref_code": "ID_SO20230726000386"
   },
-  "status": "delivery failed",
+  "status": "delivery_failed",
   "ata_at": "2023-06-09T23:00:00Z",
   "message": "failed delivery reason here"
 }
 ```
 
+## Delivery Resend
+
+## HTTP Request
+
+`PATCH http://URLCLIENT/callback`
+
+Event when shipment is failed to be delivered with any reasons
+
+```json
+{
+  "code": "M0000000001",
+  "shipment": {
+    "code": "S4563844412",
+    "ref_code": "ID_SO20230726000386"
+  },
+  "status": "resend",
+  "ata_at": "2023-06-09T23:00:00Z",
+  "eta_at": "2023-06-10T23:00:00Z",
+  "message": "failed delivery reason here"
+}
+```
+
+## Cancelled
+
+## HTTP Request
+
+`PATCH http://URLCLIENT/callback`
+
+Event when shipment goods was returned
+
+```json
+{
+  "code": "M0000000001",
+  "shipment": {
+    "code": "S4563844412",
+    "ref_code": "ID_SO20230726000386"
+  },
+  "status": "cancelled",
+  "received_by": "Robert",
+  "ata_at": "2023-06-09T23:00:00Z"
+}
+```
+
 ## Returned
+
+## HTTP Request
+
+`PATCH http://URLCLIENT/callback`
 
 Event when shipment goods was returned
 
