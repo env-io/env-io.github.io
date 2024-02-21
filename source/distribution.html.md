@@ -182,29 +182,6 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 {
   "ref_code": "ID_SO20230726000340",
   "cod_value": 23000,
-  "pickup_address": {
-    "name": "PERGUDANGAN KOSAMBI PERMAI",
-    "contact_person": "PERGUDANGAN KOSAMBI PERMAI",
-    "phone_number": "628767438745",
-    "address": "JL. RAYA PERANCIS NO.17, BELIMBING, KEC. KOSAMBI, KABUPATEN TANGERANG, BANTEN 15212",
-    "province": "Banten",
-    "regency": "kabupaten tangerang",
-    "district": "kosambi",
-    "village": "belimbing",
-    "latitude": 38.8951,
-    "longitude": -77.0364
-  },
-  "recipient": {
-    "contact_person": "SAPTA APRIYANA",
-    "phone_number": "6285156701828",
-    "address": "JL.PENGADEGAN UTARA NO.1, KEL.CIKOKO, KEC.PANCORAN,KOTA JAKARTA SELATAN, DKI JAKARTA",
-    "province": "DKI Jakarta",
-    "regency": "Jakarta Selatan",
-    "district": "Pancoran",
-    "village": "cikoko",
-    "latitude": 38.8951,
-    "longitude": -77.0364
-  },
   "items": [
     {
       "item_code": "2192x127y",
@@ -216,49 +193,23 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
       "wide": 30,
       "unit_price": 12500
     }
-  ],
-  "eta_at": "2023-07-27T15:40:20+07:00",
-  "etd_at": "2023-07-27T15:40:20+07:00"
+  ]
 }
 ```
 
-| Fields                                  | Required (Y/N) | Type                        | Description                                                                                                                |
-| --------------------------------------- | -------------- | --------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| ref_code                                | Y              | String                      | Your refference code, can be your order number or any refference code in your application                                  |
-| cod_value                               | N              | Decimal                     | If your shipment need us to collect the money on delivery, fill 0 if you dont need it                                      |
-| pickup_address                          | Y              | Object                      | -                                                                                                                          |
-| <div align="right">name</div>           | Y              | String                      | custom name for this address, ex: "DC Jakarta"                                                                             |
-| <div align="right">contact_person</div> | Y              | String                      | Contact person for pickup in your warehouse                                                                                |
-| <div align="right">phone_number</div>   | Y              | String                      | Phone number of contact person                                                                                             |
-| <div align="right">address</div>        | Y              | String                      | Detailed address for pick-up                                                                                               |
-| <div align="right">province</div>       | N              | String                      | Name of pickup address province                                                                                            |
-| <div align="right">regency</div>        | N              | String                      | Name of pickup address regency                                                                                             |
-| <div align="right">district</div>       | N              | String                      | Name of pickup address district                                                                                            |
-| <div align="right">village</div>        | N              | String                      | Name of pickup address village                                                                                             |
-| <div align="right">latitude</div>       | N              | Float                       | Latitude coordinate                                                                                                        |
-| <div align="right">longitude</div>      | N              | Float                       | Longitude coordinate                                                                                                       |
-| recipient                               | Y              | Object                      | -                                                                                                                          |
-| <div align="right">contact_person</div> | Y              | String                      | Recipient full name                                                                                                        |
-| <div align="right">phone_number</div>   | Y              | String                      | Phone number of recipient                                                                                                  |
-| <div align="right">address</div>        | Y              | String                      | Detailed address recipient                                                                                                 |
-| <div align="right">province</div>       | N              | String                      | Name of recipient province                                                                                                 |
-| <div align="right">regency</div>        | N              | String                      | Name of recipient regency                                                                                                  |
-| <div align="right">district</div>       | N              | String                      | Name of recipient district                                                                                                 |
-| <div align="right">village</div>        | N              | String                      | Name of recipient village                                                                                                  |
-| <div align="right">latitude</div>       | N              | Float                       | Latitude coordinate                                                                                                        |
-| <div align="right">longitude</div>      | N              | Float                       | Longitude coordinate                                                                                                       |
-| items                                   | N              | Array Object                | -                                                                                                                          |
-| <div align="right">item_code</div>      | N              | String                      | can be used for unique items                                                                                               |
-| <div align="right">item_name</div>      | Y              | String                      | Name of items                                                                                                              |
-| <div align="right">quantity</div>       | Y              | Float                       | quantity of items                                                                                                          |
-| <div align="right">weight</div>         | N              | Float                       | weight of items                                                                                                            |
-| <div align="right">long</div>           | N              | Float                       | long of items                                                                                                              |
-| <div align="right">high</div>           | N              | Float                       | high of items                                                                                                              |
-| <div align="right">wide</div>           | N              | Float                       | wide of items                                                                                                              |
-| <div align="right">unit_price</div>     | N              | Float                       | unit price of items                                                                                                        |
-| eta_at                                  | Y              | Date time format (ISO 8601) | Estimated time arrival, if any your shipment has window receiving time, using format: 2023-07-28T07:20:24+07:00 (ISO 8601) |
-| etd_at                                  | Y              | Date time format (ISO 8601) | Estimated time departure, scheduled pick-up time, using format: 2023-07-28T07:20:24+07:00 (ISO 8601)                       |
-|                                         |
+| Fields                              | Required (Y/N) | Type         | Description                                                                               |
+| ----------------------------------- | -------------- | ------------ | ----------------------------------------------------------------------------------------- |
+| ref_code                            | Y              | String       | Your refference code, can be your order number or any refference code in your application |
+| cod_value                           | N              | Decimal      | If your shipment need us to collect the money on delivery, fill 0 if you dont need it     |
+| items                               | N              | Array Object | -                                                                                         |
+| <div align="right">item_code</div>  | N              | String       | can be used for unique items                                                              |
+| <div align="right">item_name</div>  | Y              | String       | Name of items                                                                             |
+| <div align="right">quantity</div>   | Y              | Float        | quantity of items                                                                         |
+| <div align="right">weight</div>     | N              | Float        | weight of items                                                                           |
+| <div align="right">long</div>       | N              | Float        | long of items                                                                             |
+| <div align="right">high</div>       | N              | Float        | high of items                                                                             |
+| <div align="right">wide</div>       | N              | Float        | wide of items                                                                             |
+| <div align="right">unit_price</div> | N              | Float        | unit price of items                                                                       |
 
 ## Response
 
