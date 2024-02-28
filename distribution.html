@@ -381,61 +381,31 @@
                     <a href="#update-peritem-sku" class="toc-h2 toc-link" data-title="Update PerItem/SKU">Update PerItem/SKU</a>
                   </li>
                   <li>
-                    <a href="#http-request-5" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
-                  </li>
-                  <li>
                     <a href="#assign-driver" class="toc-h2 toc-link" data-title="Assign Driver">Assign Driver</a>
-                  </li>
-                  <li>
-                    <a href="#http-request-6" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
                   </li>
                   <li>
                     <a href="#manifested" class="toc-h2 toc-link" data-title="Manifested">Manifested</a>
                   </li>
                   <li>
-                    <a href="#http-request-7" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
-                  </li>
-                  <li>
                     <a href="#pick-up-succeed" class="toc-h2 toc-link" data-title="Pick-up Succeed">Pick-up Succeed</a>
-                  </li>
-                  <li>
-                    <a href="#http-request-8" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
                   </li>
                   <li>
                     <a href="#pick-up-failed" class="toc-h2 toc-link" data-title="Pick-up Failed">Pick-up Failed</a>
                   </li>
                   <li>
-                    <a href="#http-request-9" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
-                  </li>
-                  <li>
                     <a href="#delivered" class="toc-h2 toc-link" data-title="Delivered">Delivered</a>
-                  </li>
-                  <li>
-                    <a href="#http-request-10" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
                   </li>
                   <li>
                     <a href="#delivery-failed" class="toc-h2 toc-link" data-title="Delivery Failed">Delivery Failed</a>
                   </li>
                   <li>
-                    <a href="#http-request-11" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
-                  </li>
-                  <li>
                     <a href="#delivery-resend" class="toc-h2 toc-link" data-title="Delivery Resend">Delivery Resend</a>
-                  </li>
-                  <li>
-                    <a href="#http-request-12" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
                   </li>
                   <li>
                     <a href="#cancelled" class="toc-h2 toc-link" data-title="Cancelled">Cancelled</a>
                   </li>
                   <li>
-                    <a href="#http-request-13" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
-                  </li>
-                  <li>
                     <a href="#returned" class="toc-h2 toc-link" data-title="Returned">Returned</a>
-                  </li>
-                  <li>
-                    <a href="#http-request-14" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
                   </li>
               </ul>
           </li>
@@ -803,19 +773,7 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"ref_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID_SO20230726000340"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"cod_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">23000</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"item_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2192x127y"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"item_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Air Mineral 300 ML"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"long"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"high"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"wide"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">12500</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+  </span><span class="nl">"cod_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">23000</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <table><thead>
@@ -837,60 +795,6 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 <td>N</td>
 <td>Decimal</td>
 <td>If your shipment need us to collect the money on delivery, fill 0 if you dont need it</td>
-</tr>
-<tr>
-<td>items</td>
-<td>N</td>
-<td>Array Object</td>
-<td>-</td>
-</tr>
-<tr>
-<td><div align="right">item_code</div></td>
-<td>N</td>
-<td>String</td>
-<td>can be used for unique items</td>
-</tr>
-<tr>
-<td><div align="right">item_name</div></td>
-<td>Y</td>
-<td>String</td>
-<td>Name of items</td>
-</tr>
-<tr>
-<td><div align="right">quantity</div></td>
-<td>Y</td>
-<td>Float</td>
-<td>quantity of items</td>
-</tr>
-<tr>
-<td><div align="right">weight</div></td>
-<td>N</td>
-<td>Float</td>
-<td>weight of items</td>
-</tr>
-<tr>
-<td><div align="right">long</div></td>
-<td>N</td>
-<td>Float</td>
-<td>long of items</td>
-</tr>
-<tr>
-<td><div align="right">high</div></td>
-<td>N</td>
-<td>Float</td>
-<td>high of items</td>
-</tr>
-<tr>
-<td><div align="right">wide</div></td>
-<td>N</td>
-<td>Float</td>
-<td>wide of items</td>
-</tr>
-<tr>
-<td><div align="right">unit_price</div></td>
-<td>N</td>
-<td>Float</td>
-<td>unit price of items</td>
 </tr>
 </tbody></table>
 <h2 id='response-2'>Response</h2>
@@ -1141,9 +1045,7 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 <p>A callback is an webhook that notify your own system at various stages of shipment (e.g. at the start or end of an shipment, before or after a pick-up, etc). We will send an POST Http Request with JSON body.</p>
 
 <p>You can set your webhook URL in client area.</p>
-<h2 id='update-peritem-sku'>Update PerItem/SKU</h2><h2 id='http-request-5'>HTTP Request</h2>
-<p><code>POST http://URLCLIENT/callback/item</code></p>
-
+<h2 id='update-peritem-sku'>Update PerItem/SKU</h2>
 <p>Event when shipment is update item/sku</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S4563844412"</span><span class="p">,</span><span class="w">
@@ -1158,9 +1060,7 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
     </span><span class="nl">"wide"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h2 id='assign-driver'>Assign Driver</h2><h2 id='http-request-6'>HTTP Request</h2>
-<p><code>POST http://URLCLIENT/callback/dispatch</code></p>
-
+</span></code></pre></div><h2 id='assign-driver'>Assign Driver</h2>
 <p>Event when shipment is assign driver</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M0000000001"</span><span class="p">,</span><span class="w">
@@ -1172,9 +1072,7 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
   </span><span class="nl">"driver_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6281897381723"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"vehicle_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B 8219 K"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h2 id='manifested'>Manifested</h2><h2 id='http-request-7'>HTTP Request</h2>
-<p><code>PATCH http://URLCLIENT/callback</code></p>
-
+</span></code></pre></div><h2 id='manifested'>Manifested</h2>
 <p>Event when shipment is scheduled</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M0000000001"</span><span class="p">,</span><span class="w">
@@ -1184,9 +1082,7 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
   </span><span class="p">},</span><span class="w">
   </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"manifested"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h2 id='pick-up-succeed'>Pick-up Succeed</h2><h2 id='http-request-8'>HTTP Request</h2>
-<p><code>PATCH http://URLCLIENT/callback</code></p>
-
+</span></code></pre></div><h2 id='pick-up-succeed'>Pick-up Succeed</h2>
 <p>Event when shipment is picked-up</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M0000000001"</span><span class="p">,</span><span class="w">
@@ -1197,9 +1093,7 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
   </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"picked_up"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"ata_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-06-09T23:00:00Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h2 id='pick-up-failed'>Pick-up Failed</h2><h2 id='http-request-9'>HTTP Request</h2>
-<p><code>PATCH http://URLCLIENT/callback</code></p>
-
+</span></code></pre></div><h2 id='pick-up-failed'>Pick-up Failed</h2>
 <p>Event when shipment is failed to pick-up</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M0000000001"</span><span class="p">,</span><span class="w">
@@ -1210,9 +1104,7 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
   </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"picked_up_failed"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Barang belum ready di pickup"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h2 id='delivered'>Delivered</h2><h2 id='http-request-10'>HTTP Request</h2>
-<p><code>PATCH http://URLCLIENT/callback</code></p>
-
+</span></code></pre></div><h2 id='delivered'>Delivered</h2>
 <p>Event when shipment is delivered</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M0000000001"</span><span class="p">,</span><span class="w">
@@ -1230,9 +1122,7 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
     </span><span class="s2">"https://yyyy.png"</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h2 id='delivery-failed'>Delivery Failed</h2><h2 id='http-request-11'>HTTP Request</h2>
-<p><code>PATCH http://URLCLIENT/callback</code></p>
-
+</span></code></pre></div><h2 id='delivery-failed'>Delivery Failed</h2>
 <p>Event when shipment is failed to be delivered with any reasons</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M0000000001"</span><span class="p">,</span><span class="w">
@@ -1244,9 +1134,7 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
   </span><span class="nl">"ata_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-06-09T23:00:00Z"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"failed delivery reason here"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h2 id='delivery-resend'>Delivery Resend</h2><h2 id='http-request-12'>HTTP Request</h2>
-<p><code>PATCH http://URLCLIENT/callback</code></p>
-
+</span></code></pre></div><h2 id='delivery-resend'>Delivery Resend</h2>
 <p>Event when shipment is failed to be delivered with any reasons</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M0000000001"</span><span class="p">,</span><span class="w">
@@ -1259,9 +1147,7 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
   </span><span class="nl">"eta_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-06-10T23:00:00Z"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"failed delivery reason here"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h2 id='cancelled'>Cancelled</h2><h2 id='http-request-13'>HTTP Request</h2>
-<p><code>PATCH http://URLCLIENT/callback</code></p>
-
+</span></code></pre></div><h2 id='cancelled'>Cancelled</h2>
 <p>Event when shipment goods was returned</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M0000000001"</span><span class="p">,</span><span class="w">
@@ -1273,9 +1159,7 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
   </span><span class="nl">"received_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Robert"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"ata_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-06-09T23:00:00Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h2 id='returned'>Returned</h2><h2 id='http-request-14'>HTTP Request</h2>
-<p><code>PATCH http://URLCLIENT/callback</code></p>
-
+</span></code></pre></div><h2 id='returned'>Returned</h2>
 <p>Event when shipment goods was returned</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M0000000001"</span><span class="p">,</span><span class="w">
