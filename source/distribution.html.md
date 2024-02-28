@@ -181,35 +181,14 @@ You must replace <code>API_SERVER</code> with our production or sandbox server t
 ```json
 {
   "ref_code": "ID_SO20230726000340",
-  "cod_value": 23000,
-  "items": [
-    {
-      "item_code": "2192x127y",
-      "item_name": "Air Mineral 300 ML",
-      "quantity": 1,
-      "weight": 10,
-      "long": 10,
-      "high": 20,
-      "wide": 30,
-      "unit_price": 12500
-    }
-  ]
+  "cod_value": 23000
 }
 ```
 
-| Fields                              | Required (Y/N) | Type         | Description                                                                               |
-| ----------------------------------- | -------------- | ------------ | ----------------------------------------------------------------------------------------- |
-| ref_code                            | Y              | String       | Your refference code, can be your order number or any refference code in your application |
-| cod_value                           | N              | Decimal      | If your shipment need us to collect the money on delivery, fill 0 if you dont need it     |
-| items                               | N              | Array Object | -                                                                                         |
-| <div align="right">item_code</div>  | N              | String       | can be used for unique items                                                              |
-| <div align="right">item_name</div>  | Y              | String       | Name of items                                                                             |
-| <div align="right">quantity</div>   | Y              | Float        | quantity of items                                                                         |
-| <div align="right">weight</div>     | N              | Float        | weight of items                                                                           |
-| <div align="right">long</div>       | N              | Float        | long of items                                                                             |
-| <div align="right">high</div>       | N              | Float        | high of items                                                                             |
-| <div align="right">wide</div>       | N              | Float        | wide of items                                                                             |
-| <div align="right">unit_price</div> | N              | Float        | unit price of items                                                                       |
+| Fields    | Required (Y/N) | Type    | Description                                                                               |
+| --------- | -------------- | ------- | ----------------------------------------------------------------------------------------- |
+| ref_code  | Y              | String  | Your refference code, can be your order number or any refference code in your application |
+| cod_value | N              | Decimal | If your shipment need us to collect the money on delivery, fill 0 if you dont need it     |
 
 ## Response
 
