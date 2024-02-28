@@ -379,10 +379,6 @@ You can set your webhook URL in client area.
 
 ## Update PerItem/SKU
 
-## HTTP Request
-
-`POST http://URLCLIENT/callback/item`
-
 Event when shipment is update item/sku
 
 ```json
@@ -403,10 +399,6 @@ Event when shipment is update item/sku
 
 ## Assign Driver
 
-## HTTP Request
-
-`POST http://URLCLIENT/callback/dispatch`
-
 Event when shipment is assign driver
 
 ```json
@@ -424,10 +416,6 @@ Event when shipment is assign driver
 
 ## Manifested
 
-## HTTP Request
-
-`PATCH http://URLCLIENT/callback`
-
 Event when shipment is scheduled
 
 ```json
@@ -442,10 +430,6 @@ Event when shipment is scheduled
 ```
 
 ## Pick-up Succeed
-
-## HTTP Request
-
-`PATCH http://URLCLIENT/callback`
 
 Event when shipment is picked-up
 
@@ -463,10 +447,6 @@ Event when shipment is picked-up
 
 ## Pick-up Failed
 
-## HTTP Request
-
-`PATCH http://URLCLIENT/callback`
-
 Event when shipment is failed to pick-up
 
 ```json
@@ -482,10 +462,6 @@ Event when shipment is failed to pick-up
 ```
 
 ## Delivered
-
-## HTTP Request
-
-`PATCH http://URLCLIENT/callback`
 
 Event when shipment is delivered
 
@@ -510,10 +486,6 @@ Event when shipment is delivered
 
 ## Delivery Failed
 
-## HTTP Request
-
-`PATCH http://URLCLIENT/callback`
-
 Event when shipment is failed to be delivered with any reasons
 
 ```json
@@ -530,10 +502,6 @@ Event when shipment is failed to be delivered with any reasons
 ```
 
 ## Delivery Resend
-
-## HTTP Request
-
-`PATCH http://URLCLIENT/callback`
 
 Event when shipment is failed to be delivered with any reasons
 
@@ -553,10 +521,6 @@ Event when shipment is failed to be delivered with any reasons
 
 ## Cancelled
 
-## HTTP Request
-
-`PATCH http://URLCLIENT/callback`
-
 Event when shipment goods was returned
 
 ```json
@@ -573,10 +537,6 @@ Event when shipment goods was returned
 ```
 
 ## Returned
-
-## HTTP Request
-
-`PATCH http://URLCLIENT/callback`
 
 Event when shipment goods was returned
 
